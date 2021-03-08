@@ -56,7 +56,6 @@ To start you off, here's an example of what some of the resources in your API sh
 We want you to know that the login and registration code we have given you is fake, completely insecure, and would never be implemented in a professional application. It is a simulation authentication using very simplistic tools, because authentication is not a learning objective of students at NSS.
 
 You will be using [session storage](https://javascript.info/localstorage#sessionstorage) to keep track of which user has logged into Nutshell. You need to read the code in the **`Login.js`** and **`Register.js`** components so that you see what is going on, but you do not need to change it.
-```
 
 ## Keep in mind some tips for a good usable app
 1. Use acceptable conventions
