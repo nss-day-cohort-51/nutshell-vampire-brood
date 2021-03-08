@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Reactive Nutshell: The Information Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Setup: Follow these steps exactly
 
-## Available Scripts
+1. Clone this repository
+1. `cd` into the directory it creates
+1. In the `api` directory, create a copy of the `database.json.example` and remove the `.example` extension.
+1. Run `json-server -p 8088 -w database.json` from the `api` directory.
+1. Run `npm install` and wait for all dependencies to be installed.
+1. Run `npm start` to verify that installation was successful.
 
-In the project directory, you can run:
+> **Note:** Your `database.json` file is already in the `.gitignore` file for this project, so it will never be added to the repo or pushed to Github.
 
-### `yarn start`
+## What is Reactive Nutshell?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Nutshell is a new product offering that you have been tasked with building. It's an app for people to use to organize their daily tasks, events, news article, friends, and chat messages.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You will be using the React library to build out this application.
 
-### `yarn test`
+To start you off, here's an example of what some of the resources in your API should look like once it's populated with some data from your application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Users
 
-### `yarn build`
+```json
+{ "id": 1, "name": "Steve Brownlee", "email": "me@me.com" }
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Friends
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```json
+{ "id": 1, "userId": 1, "currentUserId": 3 }
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### News Articles
 
-### `yarn eject`
+```json
+{
+    "id": 1,
+    "userId": 2,
+    "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+    "title": "Wormholes Allow Information to Escape Black Holes",
+    "synopsis": "Check out this recent discovery about workholes",
+    "timestamp": "2021-02-11T15:24"
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Professional Requirements
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. All teammates must use React and JSON-server. 
+1. Each module should have a comment at the top with the following info: author(s) and purpose of module
+1. The README for your project should include instructions on how another person can download and run the application
+1. An ERD showing the database relationships. A screenshot/image should be included on your README.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## A Note About Authentication
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+We want you to know that the login and registration code we have given you is fake, completely insecure, and would never be implemented in a professional application. It is a simulation authentication using very simplistic tools, because authentication is not a learning objective of students at NSS.
 
-## Learn More
+You will be using [session storage](https://javascript.info/localstorage#sessionstorage) to keep track of which user has logged into Nutshell. You need to read the code in the **`Login.js`** and **`Register.js`** components so that you see what is going on, but you do not need to change it.
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Keep in mind some tips for a good usable app
+1. Use acceptable conventions
+   * Logo positioned at top left
+   * Navigation across the top or down the left side
+2. Visual hierarchy
+   * Most important information is the most prominent
+3. Break pages up into defined sections
+   * Logically related content should be related visually
+4. That which is clickable should be obviously clickable.
+5. Eliminate distractions
+   * Use only two typefaces
+   * Limit color pallet (3 colors with black and white)
+   * Use a grid
+6. Support scanning (users don't read)
+   * Use plenty of headings
+   * Short paragraphs
+   * Bulleted lists
+7. Strive for consistency.
