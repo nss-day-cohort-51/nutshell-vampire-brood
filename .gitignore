@@ -24,3 +24,5 @@ yarn-error.log*
 
 .eslintcache
 database.json
+
+yarn.lock
