@@ -31,7 +31,7 @@ const getTasks = () => {
   return (
     <>
       <div className="task__container">
-        {tasks.map(task => <TaskCard key={task.id} task={task} handleDeleteTask={handleDeleteTask} />)}
+        {tasks.map(task => <TaskCard key={task.id} task={task} user={task.user} handleDeleteTask={handleDeleteTask} />)}
       </div>
     </>
   );
