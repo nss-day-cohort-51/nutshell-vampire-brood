@@ -1,7 +1,7 @@
 const remoteURL = "http://localhost:8088";
 
 export default class APIManager {
-    // target: json paramater to query;                     eg. "users", "artilcles", "tasks"
+    // target: json paramater to query;                     eg. "users", "articles", "tasks"
     // id: target/id;                                       eg. 1
     // expandArray: array of parameters to expand on;       eg. ["task", "article"]
     getById(target, id, expandArray = []) {
