@@ -1,0 +1,31 @@
+#root,
+html {
+  background-color: #2a324b;
+}
+
+.section-content {
+  background-color: #767b91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vw;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 1vw 1vw;
+  margin: 3vw 3vw;
+  background-color: #c7ccd8;
+}
+
+.container-cards {
+  background-color: #2a324b;
+}
+
+.section-content button {
+  background-color: #c7ccd8;
+  height: 4vw;
+  text-align: center;
+}
