@@ -7,6 +7,7 @@ import "./messages.css";
 export const MessageList = ({ activeUserId }) => {
     // let userMessages = messages ? messages : [];
     const [userMessages, setUserMessages] = useState([]);
+    const [messageText, setMessageText] = useState("");
 
     // const [messages, setMessages] = useState([]);
 
@@ -16,7 +17,7 @@ export const MessageList = ({ activeUserId }) => {
 
     const getActiveMessages = () => {
         fetch(
-            `http://localhost:8088/messages?userToId=${currentUserId}&userId=${activeUserId}&_expand=user`
+            `http://localhost:8088/messages?userToId=${currentUserId}&userToId=${activeUserId}&userId=${activeUserId}&userId=${currentUserId}&_expand=user`
         )
             .then((result) => result.json())
             .then((messageObjs) => {
@@ -32,6 +33,16 @@ export const MessageList = ({ activeUserId }) => {
         };
         return API.addEntry("messages", textObj).then(getActiveMessages);
     };
+
+    const handleInputChange = (event) => {
+        setMessageText(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        postMessage(messageText);
+    };
+
     // const addMessage = (messageId) => {
     //     const messageObj = {
     //         userId: messageId,
@@ -75,22 +86,22 @@ export const MessageList = ({ activeUserId }) => {
                 <div className="messageList__input">
                     <form
                         className="messageList__input-box"
-                        onSubmit={postMessage}
+                        onSubmit={handleSubmit}
                     >
                         <fieldset>
                             <input
                                 type="text"
                                 id="messageList__text"
                                 className="messageList__text"
-                                placeholder="Email address"
+                                // placeholder="Email address"
                                 required
                                 autoFocus
-                                // value={loginUser.email}
-                                // onChange={handleInputChange}
+                                value={messageText}
+                                onChange={handleInputChange}
                             />
                         </fieldset>
                         <fieldset>
-                            <button type="submit">Sign in</button>
+                            <button type="submit">Send</button>
                         </fieldset>
                     </form>
 
