@@ -28,19 +28,11 @@ export const ArticleForm = () => {
     newArticle[event.target.id] = selectedValue;
     setArticle(newArticle);
   };
-  // useEffect(() => {
-  //   apiManager.getAll("users").then((user) => {
-  //     setUsers(user);
-  //   });
-  // });
 
   const handleClickSaveArticle = (event) => {
-    event.preventDefault(); //Prevents the browser from submitting the form
+    event.preventDefault();
 
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
-
-    //Invoke addArticle passing the new article object as an argument
-    //Once complete, change the url and display the article list
 
     const newArticle = {
       userId: currentUserId,
