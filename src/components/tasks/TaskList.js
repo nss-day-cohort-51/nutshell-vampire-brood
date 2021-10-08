@@ -8,19 +8,20 @@ export const TaskList = () => {
   const [tasks, setTasks] = useState([]);
 //   const history = useHistory();
 
+let currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 const API = new APIManager()
 
 const getTasks = () => {
 
     // After the data comes back from the API, use it in setTasks function to change the state
-    return API.getAll("tasks", ["user"]).then((tasksFromAPI) => {
+    return API.getAllByUserId("tasks", currentUserId, ["user"]).then((tasksFromAPI) => {
       setTasks(tasksFromAPI);
     });
   };
 
   const handleDeleteTask = (id) => {
     API.delete("tasks", id).then(() =>
-      API.getAll("tasks", ["user"]).then(setTasks)
+      API.getAllByUserId("tasks", currentUserId, ["user"]).then(setTasks)
     );
   };
 
