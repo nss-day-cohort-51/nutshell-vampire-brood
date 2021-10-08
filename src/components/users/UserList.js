@@ -49,7 +49,7 @@ export const UserList = () => {
                                     user={friend.user}
                                     addFriend={addFriend}
                                     deleteFriend={deleteFriend}
-                                    friend={true}
+                                    isFriend={true}
                                     friendId={friend.id}
                                 />
                             );

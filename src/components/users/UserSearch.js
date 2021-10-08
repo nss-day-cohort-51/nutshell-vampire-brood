@@ -41,6 +41,7 @@ export const UserSearch = ({ addFriend, deleteFriend }) => {
                     key={user.id}
                     user={user}
                     addFriend={addFriend}
+                    isFriend={false}
                     deleteFriend={deleteFriend}
                 />
             ))}
