@@ -33,8 +33,8 @@ export const ArticleList = () => {
   useEffect(() => {
     apiManager.getAll("users").then((user) => {
       setUsers(user);
-    }, []);
-  });
+    });
+  }, []);
 
   const handleDeleteArticle = (id) => {
     return apiManager

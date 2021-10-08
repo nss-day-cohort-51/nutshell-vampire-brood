@@ -25,7 +25,10 @@ html {
 }
 
 .section-content button {
+  display: flex;
+  align-items: center;
   background-color: #c7ccd8;
   height: 4vw;
   text-align: center;
+  font-size: 15px;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
 
 export const ArticleForm = () => {
@@ -10,11 +11,14 @@ export const ArticleForm = () => {
     timestamp: 0,
   });
 
-  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const apiManager = new APIManager();
+
+  const history = useHistory();
 
   const handleControlledInputChange = (event) => {
     const newArticle = { ...article };
-    const apiManager = new APIManager();
     let selectedValue = event.target.value;
 
     if (event.target.id.includes("Id")) {
@@ -23,13 +27,12 @@ export const ArticleForm = () => {
 
     newArticle[event.target.id] = selectedValue;
     setArticle(newArticle);
-
-    useEffect(() => {
-      apiManager.getAll("users").then((user) => {
-        setUsers(user);
-      });
-    });
   };
+  // useEffect(() => {
+  //   apiManager.getAll("users").then((user) => {
+  //     setUsers(user);
+  //   });
+  // });
 
   const handleClickSaveArticle = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
@@ -46,7 +49,17 @@ export const ArticleForm = () => {
       synopsis: article.synopsis,
       timestamp: Date.now(),
     };
-    apiManager.addEntry(articles, newArticle);
+
+    if (
+      newArticle.userId === 0 ||
+      newArticle.url === "" ||
+      newArticle.title === "" ||
+      newArticle.synopsis === ""
+    ) {
+      window.alert("Please fill out form before submitting");
+    } else {
+      apiManager.addEntry("articles", newArticle).then(() => history.push("/"));
+    }
   };
 
   return (
