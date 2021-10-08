@@ -11,8 +11,6 @@ export const ArticleForm = () => {
     timestamp: 0,
   });
 
-  const [isLoading, setIsLoading] = useState(false);
-
   const apiManager = new APIManager();
 
   const history = useHistory();
@@ -21,9 +19,7 @@ export const ArticleForm = () => {
     const newArticle = { ...article };
     let selectedValue = event.target.value;
 
-    if (event.target.id.includes("Id")) {
-      selectedValue = parseInt(selectedValue);
-    }
+    selectedValue = parseInt(selectedValue);
 
     newArticle[event.target.id] = selectedValue;
     setArticle(newArticle);
