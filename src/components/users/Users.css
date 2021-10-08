@@ -1,0 +1,58 @@
+.userList {
+    background-color: #C7CCD8;
+    ;
+    color: #2A324B;
+}
+
+.userCard {
+    color: #2A324B;
+    background-color: #767B91; 
+    border-color: #C7CCD8;
+    margin: 10px;
+    border-radius: 5px;
+    margin-inline: 10%;
+    padding:10px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+h1, h2, h3 {
+    /* color: #2A324B; */
+    margin-left: 30px
+}
+.userCard__info {
+}
+
+.userCard h3 {
+    margin:0;
+    padding:0
+}
+
+.userCard p {
+    margin-left: 20px;
+    margin-top:6px;
+    padding:0;
+    margin-bottom: 0;
+}
+
+.userCard__icon {
+    /* font-size: 50px; */
+    transform: scale(2);
+    margin-block: auto;
+    margin-inline: 20px;
+}
+
+.userSearch__searchBar {
+    margin-inline: auto;
+    text-align: center;
+}
+/* 
+#000000
+#2A324B
+#767B91
+#C7CCD8
+#DFFFBE
+#FFFFFF 
+*/

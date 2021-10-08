@@ -1,0 +1,52 @@
+p {
+    margin-bottom:0;
+
+}
+
+strong {
+    color: grey;
+    top:-10px
+}
+
+.root {
+    /* height: 100%; */
+}
+.messages {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.messages__sideBar {
+    flex: 1;
+    /* border-right: 1px solid grey */
+
+}
+
+.messages__feed {
+    flex: 3;
+    border-left: 1px solid grey
+}
+
+.messageCard {
+    margin: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.messageCard__from {
+    margin-left: 20px;
+}
+
+.messageUserCard {
+    height: 100px;
+    border-bottom: solid 1px grey;
+
+}
+
+.messageUserCard__user {
+    margin: auto;
+    margin-left: 10px;
+}
+
