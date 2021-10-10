@@ -1,4 +1,3 @@
-import { formatMuiErrorMessage } from "@mui/utils";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
@@ -65,13 +64,13 @@ const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
               <fieldset>
                   <div className="form-group task__dueDate">
                       <label htmlFor="dueDate">Due Date:</label>
-                      <input type="date" id="dueDate" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Title of task" value={task.dueDate} />
+                      <input type="date" id="dueDate" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task due date" value={task.dueDate} />
                   </div>
               </fieldset>
               <fieldset>
                   <div className="form-group task__user">
                       <label htmlFor="user">Owner:</label>
-                      <input type="hidden" id="user" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Title of task" value={task.userId} />
+                      <input type="hidden" id="user" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="owner of task" value={task.userId} />
                   </div>
               </fieldset>
               <fieldset>
@@ -80,13 +79,14 @@ const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
                       <textarea required name="description" id="description" cols="30" rows="10" placeholder="Describe the task" value={task.description} onChange={handleControlledInputChange}></textarea>
                   </div>
               </fieldset>
-              <section className="task-edit-delete__block">
 
+              <section className="task-edit-delete__block">
+                    <button onClick={handleClickSaveTask} className="save__button">Save Task</button>
+                    <Link to="/tasks">
+                    <button className="cancel__button">Cancel</button>
+                    </Link>
               </section>
-              <button onClick={handleClickSaveTask} className="save__button">Save Task</button>
-              <Link to="/tasks">
-                  <button className="cancel__button">Cancel</button>
-                </Link>
+              
 
           </form>
       </div>

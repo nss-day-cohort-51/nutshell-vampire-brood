@@ -17,7 +17,13 @@ export const TaskCard = ({ task, handleDeleteTask, user }) => {
           <div className="task__card">
               <section className="task__card-header">
                   <h3 className="task__name">{task.name}</h3>
-                  <div className="task__completed-status">Completed: {task.completeStatus ? `Yes` : `No`}</div>
+                  <div className="task__completed-status">
+                      <fieldset>
+                            <div className="form-group task__description">
+                            <label for="task__dueDate">Completed: </label>
+                                <input type="checkbox" id="task__dueDate" name="task__dueDate" />
+                            </div>
+                    </fieldset>Completed: {task.completeStatus ? `Yes` : `No`}</div>
               </section>
               <section className="task__card-body">
                   <div className="task__user">Owner: {user.name}</div>
