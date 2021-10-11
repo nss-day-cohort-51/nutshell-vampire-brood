@@ -11,7 +11,6 @@ const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
     userId: currentUserId,
     description: "",
     dueDate: 0,
-    completeDate: 0,
     completeStatus: false
   });
 
@@ -69,7 +68,7 @@ const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
               </fieldset>
               <fieldset>
                   <div className="form-group task__description">
-                      <label htmlFor="description">Title:</label>
+                      <label htmlFor="description">description:</label>
                       <textarea required name="description" id="description" cols="30" rows="10" placeholder="Describe the task" value={task.description} onChange={handleControlledInputChange}></textarea>
                   </div>
               </fieldset>

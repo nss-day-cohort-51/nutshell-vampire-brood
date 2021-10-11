@@ -4,7 +4,7 @@ import APIManager from "../../modules/APIManager";
 
 export const TaskDetail = () => {
 
-    const [task, setTask] = useState({name: "", description: "", dueDate: 0, completeDate: 0, completeStatus: false, user: "" });
+    const [task, setTask] = useState({name: "", description: "", dueDate: 0, completeStatus: false, user: "" });
     const [isLoading, setIsLoading] = useState(true);
 
     // Make a copy of the APIManager class function (or whatever it's called)
@@ -26,7 +26,6 @@ export const TaskDetail = () => {
             name: task.name,
             description: task.description,
             dueDate: convertDateString(task.dueDate),
-            completeDate: convertDateString(task.completeDate),
             completeStatus: task.completeStatus,
             user: task.user.name
         });

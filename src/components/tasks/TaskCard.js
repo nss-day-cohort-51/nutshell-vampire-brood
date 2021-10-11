@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import "./Task.css";
 import APIManager from "../../modules/APIManager";
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
+import { TaskEditForm } from "./TaskEditForm";
 
 export const TaskCard = ({ task, handleDeleteTask, user }) => {
 
     const [completeTask, setCompleteTask] = useState({
-      completeDate: 0,
       completeStatus: false
     })
     const [isLoading, setIsLoading] = useState(false);
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
     const {taskId} = useParams();
+    const history = useHistory();
 
     // Make a copy of the APIManager class function (or whatever it's called)
     const API = new APIManager()
@@ -42,7 +43,6 @@ export const TaskCard = ({ task, handleDeleteTask, user }) => {
             userId: currentUserId,
             description: task.description,
             dueDate: task.dueDate,
-            completeDate: Date.now(),
             completeStatus: true
         }
 
@@ -74,7 +74,7 @@ export const TaskCard = ({ task, handleDeleteTask, user }) => {
                       </Link>
                   </div>
                   <div className="task__edit-delete-button-block">
-                      <button type="button" className="button__edit">
+                      <button type="button" className="button__edit" onClick={() => history.push(`/tasks/${task.id}/edit`)}>
                           Edit
                       </button>
                       <button type="button" className="button__delete" onClick={() => handleDeleteTask(task.id)}>
