@@ -19,8 +19,6 @@ export const ArticleForm = () => {
     const newArticle = { ...article };
     let selectedValue = event.target.value;
 
-    selectedValue = parseInt(selectedValue);
-
     newArticle[event.target.id] = selectedValue;
     setArticle(newArticle);
   };
