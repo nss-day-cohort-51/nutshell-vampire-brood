@@ -16,7 +16,6 @@ export const TaskEditForm = () => {
     completeStatus: false
 });
 
-const [isLoading, setIsLoading] = useState(false);
 const {taskId} = useParams();
 const history = useHistory();
 
@@ -28,7 +27,6 @@ const handleFieldChange = event => {
 
 const updateExistingTask = event => {
     event.preventDefault();
-    setIsLoading(true);
     
     //This is an edit, we need the id
     const editedTask = {
@@ -48,7 +46,6 @@ useEffect(() => {
     console.log(taskId)
     API.getById("tasks", taskId).then(task => {
         setTask(task);
-        setIsLoading(false);
     }
     );
 }, []);
