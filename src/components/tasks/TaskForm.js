@@ -45,12 +45,6 @@ const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
 
   }
 
-//   const handleCancel = event => {
-//       event.preventDefault();
-// <Link></Link>
-//       history.push("/tasks")
-//   }
-
   return (
       <div>
           <form className="task task__form">
