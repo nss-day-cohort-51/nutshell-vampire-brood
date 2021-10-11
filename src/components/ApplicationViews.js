@@ -1,15 +1,10 @@
-<<<<<<< Updated upstream
 import React from "react";
 import { Route } from "react-router-dom";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
-=======
-import React from "react"
-import { Route } from "react-router-dom"
 import { EventList } from "./events/EventList"
 import { EventForm } from "./events/EventForm"
 import { EventDetail } from "./events/EventDetail"
->>>>>>> Stashed changes
 
 export const ApplicationViews = () => {
   return (

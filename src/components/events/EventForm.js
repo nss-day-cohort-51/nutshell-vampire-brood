@@ -12,14 +12,14 @@ export const EventForm = () => {
 
 	const [thisEvent, setEvent] = useState({
 		userId: "",
-        name: "",
-        location: "",
+		name: "",
+		location: "",
 		dateStart: "",
-        dateEnd: "",
-        address: "",
-        city: "",
-        state: "",
-        zip: ""
+		dateEnd: "",
+		address: "",
+		city: "",
+		state: "",
+		zip: ""
 	});
 
 	const [isLoading, setIsLoading] = useState(false);
@@ -48,20 +48,20 @@ export const EventForm = () => {
 
 	const handleClickSaveEvent = (event) => {
 		event.preventDefault() //Prevents the browser from submitting the form
-//const newEvent = {...event}
-        // newEvent.name = event.name;
-        // newEvent.date = event.date;
-        // newEvent.location = event.location;
+		//const newEvent = {...event}
+		// newEvent.name = event.name;
+		// newEvent.date = event.date;
+		// newEvent.location = event.location;
 
 		if (!thisEvent.name) {
 			window.alert("Please provide Name of Occasion")
 		}
-        else if (!thisEvent.date) {
+		else if (!thisEvent.date) {
 			window.alert("Please provide Day of Occasion")
 		}
-        else if (!thisEvent.location) {
+		else if (!thisEvent.location) {
 			window.alert("Please provide Place of Occasion")
-		} 
+		}
 		else if (!thisEvent.dateStart) {
 			window.alert("Please provide Beginning of Occasion")
 		}
@@ -83,65 +83,67 @@ export const EventForm = () => {
 	}
 
 	return (
-		<form className="eventForm">
-			<h2 className="eventForm__title">New Occasion</h2>
+		<section className="eventForm__container">
+			<form className="eventForm">
+				<h2 className="eventForm__title">New Occasion</h2>
 
-			<fieldset> {/* GATHER THE NAME OF THE EVENT */}
-				<div className="form-group">
-					<label htmlFor="name">Name of Occasion:</label>
-					<input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name of Occasion" value={thisEvent.name} />
-				</div>
-			</fieldset>
+				<fieldset> {/* GATHER THE NAME OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="name">Name of Occasion:</label>
+						<input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name of Occasion" value={thisEvent.name} />
+					</div>
+				</fieldset>
 
-			<fieldset> {/* GATHER THE LOCATION OF THE EVENT */}
-            <div className="form-group">
-					<label htmlFor="location">Place of Occasion:</label>
-					<input type="text" id="location" onChange={handleControlledInputChange} className="form-control" value={thisEvent.location} />
-				</div>
-			</fieldset>
+				<fieldset> {/* GATHER THE LOCATION OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="location">Place of Occasion:</label>
+						<input type="text" id="location" onChange={handleControlledInputChange} className="form-control" value={thisEvent.location} />
+					</div>
+				</fieldset>
 
-			<fieldset> {/* GATHER THE START DATE OF THE EVENT */}
-				<div className="form-group">
-					<label htmlFor="dateStart">Beginning Day of Occasion:</label>
-					<input type="dateStart" id="dateStart" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateStart} />
-				</div>
-			</fieldset>
+				<fieldset> {/* GATHER THE START DATE OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="dateStart">Beginning Day of Occasion:</label>
+						<input type="date" id="dateStart" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateStart} />
+					</div>
+				</fieldset>
 
-			<fieldset> {/* GATHER THE END DATE OF THE EVENT */}
-				<div className="form-group">
-					<label htmlFor="dateEnd">Ending Day of Occasion:</label>
-					<input type="dateEnd" id="dateEnd" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateEnd} />
-				</div>
-			</fieldset>
-			
-			<fieldset> {/* GATHER THE ADDRESS OF THE EVENT */}
-				<div className="form-group">
-					<label htmlFor="address">Address of Occasion:</label>
-					<input type="address" id="address" onChange={handleControlledInputChange} className="form-control" value={thisEvent.address} />
-				</div>
-			</fieldset>
-			<fieldset> {/* GATHER THE CITY OF THE EVENT */}
-				<div className="form-group">
-					<label htmlFor="city">City:</label>
-					<input type="city" id="city" onChange={handleControlledInputChange} className="form-control" value={thisEvent.city} />
-				</div>
-			</fieldset>
-			<fieldset> {/* GATHER THE STATE OF THE EVENT */}
-				<div className="form-group">
-					<label htmlFor="state">State:</label>
-					<input type="state" id="state" onChange={handleControlledInputChange} className="form-control" value={thisEvent.state} />
-				</div>
-			</fieldset>
-			<fieldset> {/* GATHER THE ZIP OF THE EVENT */}
-				<div className="form-group">
-					<label htmlFor="zip">Zip:</label>
-					<input type="zip" id="zip" onChange={handleControlledInputChange} className="form-control" value={thisEvent.zip} />
-				</div>
-			</fieldset>
-			<button className="btn btn-primary"
-				onClick={handleClickSaveEvent}>
-				Save event
-          </button>
-		</form>
+				<fieldset> {/* GATHER THE END DATE OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="dateEnd">Ending Day of Occasion:</label>
+						<input type="date" id="dateEnd" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateEnd} />
+					</div>
+				</fieldset>
+
+				<fieldset> {/* GATHER THE ADDRESS OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="address">Address of Occasion:</label>
+						<input type="address" id="address" onChange={handleControlledInputChange} className="form-control" value={thisEvent.address} />
+					</div>
+				</fieldset>
+				<fieldset> {/* GATHER THE CITY OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="city">City:</label>
+						<input type="city" id="city" onChange={handleControlledInputChange} className="form-control" value={thisEvent.city} />
+					</div>
+				</fieldset>
+				<fieldset> {/* GATHER THE STATE OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="state">State:</label>
+						<input type="state" id="state" onChange={handleControlledInputChange} className="form-control" value={thisEvent.state} />
+					</div>
+				</fieldset>
+				<fieldset> {/* GATHER THE ZIP OF THE EVENT */}
+					<div className="form-group">
+						<label htmlFor="zip">Zip:</label>
+						<input type="zip" id="zip" onChange={handleControlledInputChange} className="form-control" value={thisEvent.zip} />
+					</div>
+				</fieldset>
+				<button className="btn btn-primary"
+					onClick={handleClickSaveEvent}>
+					Save event
+				</button>
+			</form>
+		</section>
 	)
 };
