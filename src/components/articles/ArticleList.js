@@ -9,7 +9,6 @@ export const ArticleList = () => {
   const [users, setUsers] = useState([]);
   const history = useHistory();
 
-  const activeUserId = sessionStorage.getItem("nutshell_user");
   const apiManager = new APIManager();
 
   const getArticles = () => {
