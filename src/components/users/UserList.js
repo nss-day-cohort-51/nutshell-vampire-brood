@@ -56,7 +56,11 @@ export const UserList = () => {
                         })}
                     </div>
                 </div>
-                <UserSearch addFriend={addFriend} deleteFriend={deleteFriend} />
+                <UserSearch
+                    addFriend={addFriend}
+                    deleteFriend={deleteFriend}
+                    friendList={friends}
+                />
             </div>
         </>
     );
