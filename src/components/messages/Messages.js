@@ -3,14 +3,17 @@ import { MessageList } from "./MessageList";
 // import APIManager from "../../modules/APIManager";
 import { useState, useEffect } from "react";
 import { MessageUserCard } from "./MessageUserCard";
+import { useParams } from "react-router";
 
 export const Messages = () => {
     const [messages, setMessages] = useState([]);
     const [totalActiveUsers, setTotalActiveUsers] = useState([]);
-    const [activeUserId, setActiveUserId] = useState(1);
+    const params = useParams();
+    const { userId } = useParams();
+    debugger;
+    const [activeUserId, setActiveUserId] = useState(userId || 1);
 
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
-
     // const API = new APIManager();
 
     const getTotalActiveUsers = () => {

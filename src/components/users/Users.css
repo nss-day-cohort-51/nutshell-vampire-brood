@@ -56,3 +56,13 @@ h1, h2, h3 {
 #DFFFBE
 #FFFFFF 
 */
+
+.userCard__message {
+    /* font-size: 50px; */
+    transform: scale(2);
+    margin-block: auto;
+    margin-inline: 20px;
+}
+.userCard__interaction {
+    display:flex;
+}

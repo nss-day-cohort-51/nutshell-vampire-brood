@@ -21,24 +21,34 @@ export const UserCard = ({
     const [isFriendState, setIsFriend] = useState(isFriend);
 
     const history = useHistory();
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
 
     const handleMessageClicked = () => {
-        history.pushState("/messages");
+        history.push(`/messages/${user.id}`);
     };
 
     useEffect(() => {
         // debugger;
-        if (friendIds) {
-            let friendBool = friendIds.includes(user.Id);
-            console.log(
-                friendId,
-                friendIds,
-                user.id,
-                friendIds.includes(user.Id),
-                friendBool
-            );
-            setIsFriend(friendBool);
-        }
+        fetch(
+            `http://localhost:8088/friends?userId=${user.id}&currentUserId=${currentUserId}`
+        )
+            .then((res) => res.json())
+            .then((resObj) => {
+                // debugger;
+                setIsFriend(resObj.length > 0);
+            });
+
+        // if (friendIds) {
+        //     let friendBool = friendIds.includes(user.Id);
+        //     console.log(
+        //         friendId,
+        //         friendIds,
+        //         user.id,
+        //         friendIds.includes(user.Id),
+        //         friendBool
+        //     );
+        //     setIsFriend(friendBool);
+        // }
     }, [friendIds]);
 
     return (
@@ -47,7 +57,7 @@ export const UserCard = ({
                 <h3 className="userCard__name">{user.name}</h3>
                 <p className="userCard__email">{user.email}</p>
             </div>
-            <div>
+            <div className="userCard__interaction">
                 {isFriendState ? (
                     <div
                         onClick={() => setConfirmDeleteBoxIsOpen(true)}
