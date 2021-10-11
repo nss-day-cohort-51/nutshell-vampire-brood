@@ -1,52 +1,54 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
+import { useParams, useHistory } from "react-router-dom";
 
-export const ArticleForm = () => {
+export const ArticleEditForm = () => {
+  const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
   const [article, setArticle] = useState({
-    userId: 0,
     url: "",
     title: "",
     synopsis: "",
-    timestamp: 0,
   });
-
+  const { articleId } = useParams();
   const apiManager = new APIManager();
-
   const history = useHistory();
 
-  const handleControlledInputChange = (event) => {
-    const newArticle = { ...article };
-    let selectedValue = event.target.value;
-
-    newArticle[event.target.id] = selectedValue;
-    setArticle(newArticle);
+  const handleFieldChange = (e) => {
+    const stateToChange = { ...article };
+    stateToChange[e.target.id] = e.target.value;
+    setArticle(stateToChange);
   };
 
-  const handleClickSaveArticle = (event) => {
-    event.preventDefault();
+  const updateExistingArticle = (e) => {
+    e.preventDefault();
 
-    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
-
-    const newArticle = {
+    const editedArticle = {
+      id: articleId,
       userId: currentUserId,
       url: article.url,
       title: article.title,
       synopsis: article.synopsis,
       timestamp: Date.now(),
     };
-
     if (
-      newArticle.userId === 0 ||
-      newArticle.url === "" ||
-      newArticle.title === "" ||
-      newArticle.synopsis === ""
+      editedArticle.userId === 0 ||
+      editedArticle.url === "" ||
+      editedArticle.title === "" ||
+      editedArticle.synopsis === ""
     ) {
       window.alert("Please fill out form before submitting");
     } else {
-      apiManager.addEntry("articles", newArticle).then(() => history.push("/"));
+      apiManager
+        .updateEntry("articles", editedArticle)
+        .then(() => history.push("/"));
     }
   };
+
+  useEffect(() => {
+    apiManager.getById("articles", articleId).then((article) => {
+      setArticle(article);
+    });
+  }, []);
 
   return (
     <form className="articleForm">
@@ -62,7 +64,7 @@ export const ArticleForm = () => {
             className="form-control"
             placeholder="Article title"
             value={article.title}
-            onChange={handleControlledInputChange}
+            onChange={handleFieldChange}
           />
         </div>
       </fieldset>
@@ -77,7 +79,7 @@ export const ArticleForm = () => {
             className="form-control"
             placeholder="Article synopsis"
             value={article.synopsis}
-            onChange={handleControlledInputChange}
+            onChange={handleFieldChange}
           />
         </div>
       </fieldset>
@@ -92,12 +94,12 @@ export const ArticleForm = () => {
             className="form-control"
             placeholder="Article url"
             value={article.url}
-            onChange={handleControlledInputChange}
+            onChange={handleFieldChange}
           />
         </div>
       </fieldset>
 
-      <button className="btn btn-primary" onClick={handleClickSaveArticle}>
+      <button className="btn btn-primary" onClick={updateExistingArticle}>
         Save Article
       </button>
     </form>
