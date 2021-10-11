@@ -1,15 +1,11 @@
-<<<<<<< Updated upstream
 import React from "react";
 import { Route } from "react-router-dom";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
-=======
-import React from "react"
-import { Route } from "react-router-dom"
 import { EventList } from "./events/EventList"
 import { EventForm } from "./events/EventForm"
 import { EventDetail } from "./events/EventDetail"
->>>>>>> Stashed changes
+import { ArticleEditForm } from "../components/articles/ArticleEditForm";
 
 export const ApplicationViews = () => {
   return (
@@ -20,6 +16,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/articles/create">
         <ArticleForm />
+      </Route>
+
+      <Route exact path="/articles/:articleId(\d+)/edit">
+        <ArticleEditForm />
       </Route>
 
       <Route path="/friends">
