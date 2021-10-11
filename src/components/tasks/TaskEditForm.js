@@ -58,13 +58,13 @@ useEffect(() => {
        <form>
             <fieldset>
                 <div className="form-group task__name">
-                      <label htmlFor="name">Chanage Task Title: {task.name}</label>
+                      <label for="name">Chanage Task Title: {task.name}</label>
                       <input type="text" id="name" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="New title" value={task.name} />
                   </div>
             </fieldset>
             <fieldset>
                   <div className="form-group task__dueDate">
-                      <label htmlFor="dueDate">Change Due Date: {task.dueDate}</label>
+                      <label for="dueDate">Change Due Date: {task.dueDate}</label>
                       <input type="date" id="dueDate" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="New due date" value={task.dueDate} />
                   </div>
               </fieldset>

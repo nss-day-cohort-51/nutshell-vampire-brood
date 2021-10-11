@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useHistory, useParams } from "react-router";
 import "./Task.css";
 import APIManager from "../../modules/APIManager";
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
-import { TaskEditForm } from "./TaskEditForm";
 
-export const TaskCard = ({ task, handleDeleteTask, user }) => {
+export const TaskCard = ({ task, handleDeleteTask, user, handleCompleteTask }) => {
 
-    const [completeTask, setCompleteTask] = useState({
-      completeStatus: false
-    })
-    const [isLoading, setIsLoading] = useState(false);
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
     const {taskId} = useParams();
     const history = useHistory();
@@ -25,30 +18,6 @@ export const TaskCard = ({ task, handleDeleteTask, user }) => {
         return formattedDate;
     }
 
-    const handleFieldChange = event => {
-        console.log("Buckets of chicken!")
-        setCompleteTask({
-            ...completeTask,
-            [event.target.name]: event.target.checked,
-          });
-          handleCompleteTask();
-    }
-
-    const handleCompleteTask = () => {
-        setIsLoading(true)
-
-        // Declare the editted state of the task
-        const editedTask = {
-            id: taskId,
-            userId: currentUserId,
-            description: task.description,
-            dueDate: task.dueDate,
-            completeStatus: true
-        }
-
-        API.updateEntry("tasks", editedTask);
-    }
-  
   return (
     <>
     <section className="task">
@@ -57,7 +26,7 @@ export const TaskCard = ({ task, handleDeleteTask, user }) => {
                   <h3 className="task__name">{task.name}</h3>
                   <div className="task__completed-status">
                       <fieldset>
-                      <input type="checkbox" name="taskComplete" id="taskComplete" onChange={handleCompleteTask} />
+                      <input type="checkbox" name="taskComplete" id="taskComplete" onChange={() => handleCompleteTask(task)} />
                         <label for="task__dueDate">Completed: </label>
                            
                     </fieldset>Completed: {task.completeStatus ? `Yes` : `No`}</div>
@@ -68,13 +37,8 @@ export const TaskCard = ({ task, handleDeleteTask, user }) => {
                   <p className="task__description">{task.description}</p>
               </section>
               <section className="task__card-footer">
-                  <div className="task__details-button">
-                      <Link to={`/tasks/${task.id}`}>
-                          <button type="button" className="task__details">Details</button>
-                      </Link>
-                  </div>
                   <div className="task__edit-delete-button-block">
-                      <button type="button" className="button__edit" onClick={() => history.push(`/tasks/${task.id}/edit`)}>
+                  <button type="button" className="button__edit" onClick={() => history.push(`/tasks/${task.id}/edit`)}>
                           Edit
                       </button>
                       <button type="button" className="button__delete" onClick={() => handleDeleteTask(task.id)}>
