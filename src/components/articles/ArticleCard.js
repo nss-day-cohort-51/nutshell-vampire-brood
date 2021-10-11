@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./Article.css";
 
 export const ArticleCard = ({ article, user, handleDeleteArticle }) => {
+  const history = useHistory();
   const dateString = new Date(article.timestamp);
   const formattedDate = dateString.toDateString();
   return (
@@ -13,6 +15,10 @@ export const ArticleCard = ({ article, user, handleDeleteArticle }) => {
       <div>
         Posted by: {user?.name} on {formattedDate}
       </div>
+      <button onClick={() => history.push(`/articles/${article.id}/edit`)}>
+        {" "}
+        Edit Article{" "}
+      </button>
       <button onClick={() => handleDeleteArticle(article.id)}>
         Delete Article
       </button>

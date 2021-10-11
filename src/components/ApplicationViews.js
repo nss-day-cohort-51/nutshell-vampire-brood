@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
+import { ArticleEditForm } from "../components/articles/ArticleEditForm";
 
 export const ApplicationViews = () => {
   return (
@@ -12,6 +13,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/articles/create">
         <ArticleForm />
+      </Route>
+
+      <Route exact path="/articles/:articleId(\d+)/edit">
+        <ArticleEditForm />
       </Route>
 
       <Route path="/friends">
