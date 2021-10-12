@@ -7,7 +7,7 @@ import { UserList } from "./users/UserList";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
-//import { MessageCard } from "./messages/MessageCard";
+import { MessageCard } from "./messages/MessageCard";
 import { Messages } from "./messages/Messages";
 import { EventList } from "./events/EventList";
 import { EventDetail } from "./events/EventDetail";
@@ -53,6 +53,14 @@ export const ApplicationViews = () => {
         <EventForm />
       </Route>
 
+      <Route exact path="/events/:eventId(\d+)/">
+        <EventDetail />
+      </Route>
+
+      <Route exact path="/events/:eventId(\d+)/edit">
+        <EventEditForm />
+      </Route>
+
       <Route exact path="/tasks">
         {/* Render the component for the user's tasks */}
         <TaskList />
@@ -65,7 +73,7 @@ export const ApplicationViews = () => {
       <Route exact path="/tasks/:taskId(\d+)/edit">
         <TaskEditForm />
       </Route>
-      
+
     </>
   )
 };

@@ -4,14 +4,20 @@ import APIManager from "../../modules/APIManager"
 
 const apiEventEditor = new APIManager
 
-
-
-
-
 export const EventEditForm = () => {
-    const [thisEvent, setEvent] = useState({ name: "", location: "", dateStart: "", dateEnd: "", address: "", city: "", state: "", zip: "" });
-    const [isLoading, setIsLoading] = useState(false);
 
+    const [thisEvent, setEvent] = useState({
+        name: "",
+        location: "",
+        dateStart: "",
+        dateEnd: "",
+        address: "",
+        city: "",
+        state: "",
+        zip: ""
+    });
+
+    const [isLoading, setIsLoading] = useState(false);
     const { eventId } = useParams();
     const history = useHistory();
 
@@ -35,16 +41,16 @@ export const EventEditForm = () => {
             address: thisEvent.address,
             city: thisEvent.city,
             state: thisEvent.state,
-            zip: thisEvent.zip
+            zip: thisEvent.zip,
+            userId: thisEvent.userId
         };
 
         apiEventEditor.updateEntry(editedEvent)
-            .then(() => history.push("/event")
-            )
+            .then(() => history.push("/event"))
     }
 
     useEffect(() => {
-        apiEventEditor.getById(eventId)
+        apiEventEditor.getById("events", eventId)
             .then(thisEvent => {
                 setEvent(thisEvent);
                 setIsLoading(false);
@@ -53,7 +59,9 @@ export const EventEditForm = () => {
 
 
 
-    
+  
+
+
 
 
 
@@ -72,7 +80,7 @@ export const EventEditForm = () => {
                             id="name"
                             value={thisEvent.name}
                         />
-                        <label htmlFor="name">Name of Occurrence</label>
+                        <label htmlFor="name" >Name of Occurrence</label>
 
                         {/* INPUT FIELD TO MODIFY EVENT LOCATION */}
                         <input

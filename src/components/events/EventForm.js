@@ -63,7 +63,7 @@ export const EventForm = () => {
 			window.alert("Please provide Beginning of Event")
 		}
 		else if (!thisEvent.dateEnd) {
-			window.alert("Please proved Ending of Event")
+			window.alert("Please provide Ending of Event")
 		}
 		else if (!thisEvent.address) {
 			window.alert("Please provide Street Address for Event")
