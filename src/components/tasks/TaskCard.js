@@ -56,7 +56,7 @@ export const TaskCard = ({
         </CardContent>
         <CardActions>
           <Button onClick={() => history.push(`/tasks/${task.id}/edit`)} variant="outlined" >Edit</Button>
-          <Button onClick={() => handleDeleteTask(task.id)} variant="outlined" >Delete</Button>
+          <Button onClick={() => handleDeleteTask(task.id)} variant="contained" sx={{backgroundColor: "#00ff00"}} >Delete</Button>
         </CardActions>
       </Card>
       
