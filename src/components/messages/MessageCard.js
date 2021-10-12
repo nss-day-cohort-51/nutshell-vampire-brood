@@ -34,7 +34,6 @@ export const MessageCard = ({
     };
 
     const messageCardMD = !editing ? (
-
         <div className="messageCard">
             <div className="messageCard__content">
                 <div className="messageCard__from">
@@ -71,7 +70,15 @@ export const MessageCard = ({
                     />
                 </fieldset>
                 <fieldset>
-                    <button type="submit">Send</button>
+                    <button
+                        type="submit"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setEditing(false);
+                        }}
+                    >
+                        Send
+                    </button>
                 </fieldset>
             </form>
         </div>
