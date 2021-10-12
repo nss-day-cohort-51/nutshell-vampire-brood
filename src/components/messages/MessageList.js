@@ -17,7 +17,9 @@ export const MessageList = ({ activeUserId }) => {
 
     const getActiveMessages = () => {
         if (activeUserId == 0) {
-            return fetch(`http://localhost:8088/messages?_expand=user`)
+            return fetch(
+                `http://localhost:8088/messages?userToId=0&_expand=user`
+            )
                 .then((result) => result.json())
                 .then((messageObjs) => {
                     setUserMessages(messageObjs);

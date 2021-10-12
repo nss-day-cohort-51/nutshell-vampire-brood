@@ -9,6 +9,8 @@ export const MessageCard = ({
     messageId,
     refreshMessages,
 }) => {
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
+
     const API = new APIManager();
     const deleteMessage = () => {
         return API.delete("messages", messageId).then(() => {
@@ -25,9 +27,11 @@ export const MessageCard = ({
                     <p>{text}</p>
                 </div>
             </div>
-            <div className="messageCard__interaction">
-                <button onClick={deleteMessage}>Delete</button>
-            </div>
+            {currentUserId == userFrom.id ? (
+                <div className="messageCard__interaction">
+                    <button onClick={deleteMessage}>Delete</button>
+                </div>
+            ) : null}
         </div>
     );
 };
