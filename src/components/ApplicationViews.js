@@ -2,6 +2,9 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
+import { EventList } from "./events/EventList"
+import { EventForm } from "./events/EventForm"
+import { EventDetail } from "./events/EventDetail"
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
 
 export const ApplicationViews = () => {
@@ -28,8 +31,14 @@ export const ApplicationViews = () => {
       <Route path="/tasks">
         {/* Render the component for the user's tasks */}
       </Route>
-      <Route path="/events">
-        {/* Render the component for the user's events */}
+      <Route exact path="/events">
+        <EventList />
+      </Route>
+      <Route exact path="/events/:eventId(\d+)">
+        <EventDetail />
+      </Route>
+      <Route exact path="/events/create">
+        <EventForm />
       </Route>
     </>
   );
