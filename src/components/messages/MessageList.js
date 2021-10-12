@@ -88,6 +88,7 @@ export const MessageList = ({ activeUserId }) => {
                                 text={message?.text}
                                 userFrom={message?.user}
                                 messageId={message?.id}
+                                message={message}
                                 refreshMessages={getActiveMessages}
                             />
                         ))}
