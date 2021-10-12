@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 
 export const Weather = () => {
-  const [weather, setWeather] = useState([]);
-
-  const wxKey = "f978b8bd1b4bf05ce67d577615e8a6a0";
+  const [weather, setWeather] = useState({weather: []});
+  const [weatherCondition, setWeatherCondition] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
+  const dateString = new Date(weather.dt * 1000);
+  const formattedDate = dateString.toDateString();
+  const formattedTemp = Math.floor(weather.main?.temp);
 
   const getLocation = () => {
     const success = (pos) => {
       const crd = pos.coords;
-      const latitude = crd.latitude;
-      const longitude = crd.longitude;
-      getWeather(latitude, longitude, wxKey)
+      let latitude = crd.latitude;
+      let longitude = crd.longitude;
+      console.log(latitude, longitude);
+      return fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=f978b8bd1b4bf05ce67d577615e8a6a0`)
         .then((res) => res.json())
-        .then((weather = setWeather(weather)));
+        .then((weather) => setWeather(weather))
+        
     };
 
     const error = (err) => {
@@ -22,14 +28,36 @@ export const Weather = () => {
     navigator.geolocation.getCurrentPosition(success, error);
   };
 
-  const getWeather = (lat, lon, wxKey) => {
-    return fetch(
-      `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${wxKey}`
-    );
-  };
+  const getCondition = () => {
+    setWeatherCondition(weather.weather[0]?.main)
+  }
 
   useEffect(() => {
     getLocation();
   }, []);
-  return null;
+
+  useEffect(() => {
+    getCondition()
+  }, [weather])
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, []);
+
+  const returnCard = isLoading ? (
+    <></>
+  ) : (
+    <article class="widget">
+      <div class="weatherInfo">
+        <div class="temperature">
+          <span>{formattedTemp}&deg;</span>
+        </div>
+        <div class="description">
+          <div class="weatherCondition">{weatherCondition}</div>
+        </div>
+      </div>
+      <div class="date">{formattedDate}</div>
+    </article>
+  );
+  return returnCard;
 };
