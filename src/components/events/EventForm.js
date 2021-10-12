@@ -4,6 +4,7 @@ import APIManager from '../../modules/APIManager';
 import './Event.css'
 
 const apiEventManager = new APIManager();
+const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
 export const EventForm = () => {
 
@@ -11,7 +12,7 @@ export const EventForm = () => {
 	// Define the initial state of the form inputs with useState()
 
 	const [thisEvent, setEvent] = useState({
-		userId: "",
+		userId: currentUser,
 		name: "",
 		location: "",
 		dateStart: "",
@@ -54,25 +55,22 @@ export const EventForm = () => {
 		// newEvent.location = event.location;
 
 		if (!thisEvent.name) {
-			window.alert("Please provide Name of Occasion")
-		}
-		else if (!thisEvent.date) {
-			window.alert("Please provide Day of Occasion")
+			window.alert("Please provide Name of Event")
 		}
 		else if (!thisEvent.location) {
-			window.alert("Please provide Place of Occasion")
+			window.alert("Please provide Place of Event")
 		}
 		else if (!thisEvent.dateStart) {
-			window.alert("Please provide Beginning of Occasion")
+			window.alert("Please provide Beginning of Event")
 		}
 		else if (!thisEvent.dateEnd) {
-			window.alert("Please proved Ending of Occasion")
+			window.alert("Please provide Ending of Event")
 		}
 		else if (!thisEvent.address) {
-			window.alert("Please provide Address for Occasion")
+			window.alert("Please provide Street Address for Event")
 		}
 		else if (!thisEvent.city || !thisEvent.state || !thisEvent.zip) {
-			window.alert("Please provide more address info")
+			window.alert("Please provide Event Address")
 		}
 		else {
 			//invoke addEvent passing event as an argument.
@@ -85,39 +83,39 @@ export const EventForm = () => {
 	return (
 		<section className="eventForm__container">
 			<form className="eventForm">
-				<h2 className="eventForm__title">New Occasion</h2>
+				<h2 className="eventForm__title">New Event</h2>
 
 				<fieldset> {/* GATHER THE NAME OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="name">Name of Occasion:</label>
-						<input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name of Occasion" value={thisEvent.name} />
+						<label htmlFor="name">Name of Event:</label>
+						<input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name of Event" value={thisEvent.name} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE LOCATION OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="location">Place of Occasion:</label>
+						<label htmlFor="location">Place of Event:</label>
 						<input type="text" id="location" onChange={handleControlledInputChange} className="form-control" value={thisEvent.location} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE START DATE OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="dateStart">Beginning Day of Occasion:</label>
+						<label htmlFor="dateStart">Beginning Day of Event:</label>
 						<input type="date" id="dateStart" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateStart} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE END DATE OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="dateEnd">Ending Day of Occasion:</label>
+						<label htmlFor="dateEnd">Ending Day of Event:</label>
 						<input type="date" id="dateEnd" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateEnd} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE ADDRESS OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="address">Address of Occasion:</label>
+						<label htmlFor="address">Address of Event:</label>
 						<input type="address" id="address" onChange={handleControlledInputChange} className="form-control" value={thisEvent.address} />
 					</div>
 				</fieldset>

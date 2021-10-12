@@ -2,20 +2,25 @@ import React, { useState, useEffect } from 'react';
 import APIManager from '../../modules/APIManager';
 import './Event.css';
 import { useParams, useHistory } from 'react-router-dom';
+import { useRadioGroup } from '@mui/material';
 
 
 const apiEventReturn = new APIManager();
+const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
 export const EventDetail = () => {
 
-    const [event, setEvent] = useState({ name: "", location: "", address: "", city: "", state: "", zip: "" });
+    
+
+    const [event, setEvent] = useState({ user: 0, name: "", location: "", address: "", city: "", state: "", zip: "" });
     const [isLoading, setIsLoading] = useState(true);
     const { eventId } = useParams();
     const history = useHistory();
 
     const handleDeleteEvent = id => {
         apiEventReturn.delete("events", id)
-            history.push("/events");
+        history.push("/events");
+        
     };
 
     const handleBack = () => {
@@ -26,6 +31,7 @@ export const EventDetail = () => {
         apiEventReturn.getById("events", eventId)
             .then(event => {
                 setEvent({
+                    user: event.userId,
                     name: event.name,
                     location: event.location,
                     address: event.address,
@@ -36,6 +42,7 @@ export const EventDetail = () => {
                 setIsLoading(false);
             });
     }, [eventId]);
+
 
     return (
 
@@ -49,7 +56,15 @@ export const EventDetail = () => {
 
                 <div className="event__details"> <strong> Address: </strong> {event.address} {event.city}, {event.state} {event.zip} </div>
 
-                <button className="event__" type="button" disabled={isLoading} onClick={handleDeleteEvent}> Remove Occasion </button>
+                {event.user === currentUser ? <button className="event__" type="button" disabled={isLoading} onClick={handleDeleteEvent}> Remove Occasion </button> :
+                <button className="event__" type="button" disabled={isLoading} onClick= {() => alert("Not allowed to deleted this Event")}> Remove Occasion </button>}
+
+                {event.user === currentUser ? <button type="button"
+                    onClick={() => history.push(`/events/${eventId}/edit`)}> Edit </button> : <button type="button"
+                        onClick={() => alert("Not allowed to edit this Event")}> Edit </button>}
+
+                {/* <button type="button"
+                    onClick={() => history.push(`/events/${eventId}/edit`)}> Edit </button> */}
 
                 <button type="button" onClick={handleBack}> Go Back </button>
 
