@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/css-prettifier": "^1.0.0",
+    "@emotion/react": "^11.4.1",
+    "@material-ui/private-theming": "^5.0.0-alpha.33",
+    "@material-ui/styled-engine": "^5.0.0-alpha.11",
     "@mui/material": "^5.0.2",
+    "@mui/styled-engine": "^5.0.1",
+    "@mui/styled-engine-sc": "^5.0.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -25,6 +31,9 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "paths": {
+    "@material-ui/styled-engine": ["./node_modules/@material-ui/styled-engine-sc"]
   },
   "browserslist": {
     "production": [
