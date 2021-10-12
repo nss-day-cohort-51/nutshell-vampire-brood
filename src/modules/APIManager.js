@@ -39,6 +39,23 @@ export default class APIManager {
         return fetch(url).then((res) => res.json());
     }
 
+    getAllByUserArray(target, userArray, expandArray = []) {
+        const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
+        let queryString = "?";
+        userArray = [...userArray, currentUserId];
+        userArray.forEach((userId) => {
+            queryString += `userId=${userId}&`;
+        });
+
+        if (expandArray.length > 0) {
+            expandArray.forEach((elem) => {
+                queryString += `_expand=${elem}&`;
+            });
+        }
+        let url = `${remoteURL}/${target}/${queryString}`;
+        return fetch(url).then((res) => res.json());
+    }
+
     getRandomId(target) {
         return fetch(`${remoteURL}/${target}`)
             .then((result) => result.json())
@@ -74,4 +91,11 @@ export default class APIManager {
             body: JSON.stringify(updatedEntry),
         }).then((response) => response.json());
     }
+
+    getFriends = () => {
+        const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
+        return fetch(
+            `http://localhost:8088/friends?currentUserId=${currentUserId}&_expand=user`
+        ).then((result) => result.json());
+    };
 }
