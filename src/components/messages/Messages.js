@@ -8,10 +8,10 @@ import { useParams } from "react-router";
 export const Messages = () => {
     const [messages, setMessages] = useState([]);
     const [totalActiveUsers, setTotalActiveUsers] = useState([]);
-    const params = useParams();
-    const { userId } = useParams();
-    debugger;
-    const [activeUserId, setActiveUserId] = useState(userId || 1);
+
+    let { userId } = useParams();
+    userId = parseInt(userId);
+    const [activeUserId, setActiveUserId] = useState(userId || 0);
 
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
     // const API = new APIManager();
@@ -22,7 +22,7 @@ export const Messages = () => {
         )
             .then((result) => result.json())
             .then((messageObjs) => {
-                let activeUsersArray = [];
+                let activeUsersArray = userId ? [userId] : [];
                 messageObjs.forEach((messageObj) => {
                     if (!activeUsersArray.includes(messageObj.userId)) {
                         activeUsersArray.push(messageObj.userId);
@@ -54,7 +54,9 @@ export const Messages = () => {
                     <MessageUserCard
                         key={userId}
                         userFrom={userId}
+                        activeUserId={activeUserId}
                         setActiveUserId={setActiveUserId}
+                        currentUserId={currentUserId}
                     />
                 ))}
             </div>

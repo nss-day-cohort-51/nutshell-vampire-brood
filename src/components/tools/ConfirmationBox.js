@@ -13,20 +13,20 @@ export const ConfirmationBox = (props) => {
         <Dialog
             open={open}
             onClose={() => setOpen(false)}
-            // aria-labelledby="confirm-dialog"
+            aria-labelledby="confirm-dialog"
         >
             <DialogTitle id="confirm-dialog">{title}</DialogTitle>
             <DialogContent>{children}</DialogContent>
             <DialogActions>
                 <Button
-                    // variant="contained"
+                    variant="contained"
                     onClick={() => setOpen(false)}
-                    // color="secondary"
+                    color="secondary"
                 >
                     No
                 </Button>
                 <Button
-                    // variant="contained"
+                    variant="contained"
                     onClick={() => {
                         setOpen(false);
                         onConfirm();

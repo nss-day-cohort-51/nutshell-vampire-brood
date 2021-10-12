@@ -25,11 +25,11 @@ export const ApplicationViews = () => {
                 <UserList />
                 {/* Render the component for list of friends */}
             </Route>
-            <Route path="/messages">
+            <Route exact path="/messages">
                 <Messages />
                 {/* Render the component for the messages */}
             </Route>
-            <Route path="/messages/:userId(/d+)">
+            <Route path="/messages/:userId(\d+)/">
                 <Messages />
                 {/* Render the component for the messages */}
             </Route>

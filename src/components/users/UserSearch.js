@@ -52,16 +52,20 @@ export const UserSearch = ({ addFriend, deleteFriend, friendList }) => {
             </div>
 
             <div className="userSearch--searchBar"></div>
-            {users.map((user) => (
-                <UserCard
-                    key={user.id}
-                    user={user}
-                    addFriend={addFriend}
-                    friendIds={friendIds}
-                    // isFriend={friendIds}
-                    deleteFriend={deleteFriend}
-                />
-            ))}
+            {users
+                .filter((user) => user.id != currentUserId)
+                .map((user) => {
+                    return (
+                        <UserCard
+                            key={user.id}
+                            user={user}
+                            addFriend={addFriend}
+                            friendIds={friendIds}
+                            // isFriend={friendIds}
+                            deleteFriend={deleteFriend}
+                        />
+                    );
+                })}
         </div>
     );
 };

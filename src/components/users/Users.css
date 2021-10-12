@@ -66,3 +66,7 @@ h1, h2, h3 {
 .userCard__interaction {
     display:flex;
 }
+
+.active {
+    background: blue;
+}
