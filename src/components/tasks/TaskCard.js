@@ -1,54 +1,66 @@
 import { useHistory, useParams } from "react-router";
 import "./Task.css";
 import APIManager from "../../modules/APIManager";
-import { FormControlLabel, FormGroup, Switch } from "@mui/material";
+import {
+  Button,
+  CardActions,
+  Typography,
+  CardContent,
+  Card,
+  CardHeader,
+  Checkbox,
+  FormControlLabel,
+  Grid,
+  Paper,
+  styled
+} from "@mui/material";
 
-export const TaskCard = ({ task, handleDeleteTask, user, handleCompleteTask }) => {
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+  }));
 
-    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
-    const {taskId} = useParams();
-    const history = useHistory();
+export const TaskCard = ({
+  task,
+  handleDeleteTask,
+  user,
+  handleCompleteTask,
+}) => {
+  const { taskId } = useParams();
+  const history = useHistory();
 
-    // Make a copy of the APIManager class function (or whatever it's called)
-    const API = new APIManager()
+  // Make a copy of the APIManager class function (or whatever it's called)
+  const API = new APIManager();
 
-    const convertDateString = (date) => {
-        const dateString = new Date(date);
-        const formattedDate = dateString.toDateString()
-        return formattedDate;
-    }
+  const convertDateString = (date) => {
+    const dateString = new Date(date);
+    const formattedDate = dateString.toDateString();
+    return formattedDate;
+  };
 
   return (
-    <>
-    <section className="task">
-          <div className="task__card">
-              <section className="task__card-header">
-                  <h3 className="task__name">{task.name}</h3>
-                  <div className="task__completed-status">
-                      <fieldset>
-                      <input type="checkbox" name="taskComplete" id="taskComplete" onChange={() => handleCompleteTask(task)} />
-                        <label for="task__dueDate">Completed: </label>
-                           
-                    </fieldset>Completed: {task.completeStatus ? `Yes` : `No`}</div>
-              </section>
-              <section className="task__card-body">
-                  <div className="task__user">Owner: {user.name}</div>
-                  <div className="task__due-date">{convertDateString(task.dueDate)}</div>
-                  <p className="task__description">{task.description}</p>
-              </section>
-              <section className="task__card-footer">
-                  <div className="task__edit-delete-button-block">
-                  <button type="button" className="button__edit" onClick={() => history.push(`/tasks/${task.id}/edit`)}>
-                          Edit
-                      </button>
-                      <button type="button" className="button__delete" onClick={() => handleDeleteTask(task.id)}>
-                          Delete
-                      </button>
-                  </div>
-              </section>
-          </div>
-      </section>
-      <hr />
-      </>
+<Grid item xs={2} sm={4} md={4} key={task.id} spacing={3}>       
+    <Card sx={{ minWidth: 300 }}>
+        <CardHeader
+          action={ <FormControlLabel control={<Checkbox onChange={() => handleCompleteTask(task)}
+          inputProps={{ 'aria-label': 'controlled' }} />} label="Complete" labelPlacement="start" /> }
+          title={task.name}
+          subheader={"Due:", convertDateString(task.dueDate)}
+        />
+        <CardContent>
+          <Typography variant="body2">
+          {task.description}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button onClick={() => history.push(`/tasks/${task.id}/edit`)} variant="outlined" >Edit</Button>
+          <Button onClick={() => handleDeleteTask(task.id)} variant="contained" sx={{backgroundColor: "#00ff00"}} >Delete</Button>
+        </CardActions>
+      </Card>
+      
+</Grid>
+    
   );
 };

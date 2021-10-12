@@ -1,8 +1,8 @@
-import React from "react"
-import { Route } from "react-router-dom"
-import { TaskEditForm } from "./tasks/TaskEditForm"
-import { TaskForm } from "./tasks/TaskForm"
-import { TaskList } from "./tasks/TaskList"
+import React from "react";
+import { Route } from "react-router-dom";
+import { TaskEditForm } from "./tasks/TaskEditForm";
+import { TaskForm } from "./tasks/TaskForm";
+import { TaskList } from "./tasks/TaskList";
 import { UserList } from "./users/UserList";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";

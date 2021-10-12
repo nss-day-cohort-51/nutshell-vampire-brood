@@ -1,28 +1,39 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "bootstrap/dist/css/bootstrap.min.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Weather } from "../../modules/Weather";
 
 export const NavBar = (props) => {
   return (
     <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
-
       <ul className="nav nav-pills nav-fill">
         <li className="nav-item">
-          <Link className="nav-link" to="/">Articles</Link>
+          <Link className="nav-link" to="/">
+            Articles
+          </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/friends">Friends</Link>
+          <Link className="nav-link" to="/friends">
+            Friends
+          </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/messages">Messages</Link>
+          <Link className="nav-link" to="/messages">
+            Messages
+          </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/tasks">Tasks</Link>
+          <Link className="nav-link" to="/tasks">
+            Tasks
+          </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/events">Events</Link>
+          <Link className="nav-link" to="/events">
+            Events
+          </Link>
         </li>
       </ul>
+      <Weather />
     </nav>
-  )
-}
+  );
+};
