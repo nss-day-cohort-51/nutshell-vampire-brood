@@ -15,7 +15,7 @@ export const EventDetail = () => {
 
     const handleDeleteEvent = id => {
         apiEventReturn.delete("events", id)
-            history.push("/events");
+        history.push("/events");
     };
 
     const handleBack = () => {
@@ -50,6 +50,9 @@ export const EventDetail = () => {
                 <div className="event__details"> <strong> Address: </strong> {event.address} {event.city}, {event.state} {event.zip} </div>
 
                 <button className="event__" type="button" disabled={isLoading} onClick={handleDeleteEvent}> Remove Occasion </button>
+
+                <button type="button"
+                    onClick={() => history.push(`/events/${event.id}/edit`)}> Edit </button>
 
                 <button type="button" onClick={handleBack}> Go Back </button>
 

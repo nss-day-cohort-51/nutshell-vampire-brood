@@ -7,6 +7,8 @@ import { EventForm } from "./events/EventForm"
 import { EventDetail } from "./events/EventDetail"
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
 
+
+
 export const ApplicationViews = () => {
   return (
     <>
@@ -40,6 +42,9 @@ export const ApplicationViews = () => {
       <Route exact path="/events/create">
         <EventForm />
       </Route>
+      {/* <Route exact path="/events/:eventId(\d+)/edit">
+        <EventEditForm />
+      </Route> */}
     </>
   );
 };
