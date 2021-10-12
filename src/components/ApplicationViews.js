@@ -1,13 +1,13 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import { UserList } from "./users/UserList";
-import { Messages } from "./messages/Messages";
+import React from "react"
+import { Route } from "react-router-dom"
+import { TaskEditForm } from "./tasks/TaskEditForm"
+import { TaskForm } from "./tasks/TaskForm"
+import { TaskList } from "./tasks/TaskList"
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
-import { TaskEditForm } from "./tasks/TaskEditForm";
-import { TaskForm } from "./tasks/TaskForm";
-import { TaskList } from "./tasks/TaskList";
+import { UserList } from "./users/UserList"
+import { Messages } from "./messages/Messages"
 
 export const ApplicationViews = () => {
   return (
