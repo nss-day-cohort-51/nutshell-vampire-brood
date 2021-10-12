@@ -17,17 +17,43 @@ export const ArticleList = () => {
         });
     };
 
-    const getUserArticles = (userId) => {
+    // EDIT : COLIN
+
+    const [friendIdArray, setFriendIdArray] = useState([]);
+    const getActiveArticles = () => {
         return apiManager
-            .getAllByUserId("articles", userId, ["user"])
-            .then((userArticle) => {
-                setArticles(userArticle);
-            });
+            .getAllByUserArray("articles", [...friendIdArray], ["user"])
+            .then((apiArticles) => {
+                setArticles(apiArticles);
+            })
+            .then(console.log(articles));
+    };
+
+    const getActiveFriends = () => {
+        return apiManager.getFriends().then((friendsRes) => {
+            setFriendIdArray(friendsRes.map((friend) => friend.userId));
+        });
     };
 
     useEffect(() => {
-        getArticles();
+        getActiveFriends();
     }, []);
+    useEffect(() => {
+        getActiveArticles();
+    }, [friendIdArray]);
+    // END EDIT
+
+    // const getUserArticles = (userId) => {
+    //     return apiManager
+    //         .getAllByUserId("articles", userId, ["user"])
+    //         .then((userArticle) => {
+    //             setArticles(userArticle);
+    //         });
+    // };
+
+    // useEffect(() => {
+    //     getArticles();
+    // }, []);
 
     useEffect(() => {
         apiManager.getAll("users").then((user) => {
