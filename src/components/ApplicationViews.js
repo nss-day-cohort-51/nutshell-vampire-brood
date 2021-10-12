@@ -5,8 +5,6 @@ import { Messages } from "./messages/Messages";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
-import React from "react";
-import { Route } from "react-router-dom";
 import { TaskEditForm } from "./tasks/TaskEditForm";
 import { TaskForm } from "./tasks/TaskForm";
 import { TaskList } from "./tasks/TaskList";
@@ -37,10 +35,6 @@ export const ApplicationViews = () => {
       <Route path="/messages/:userId(\d+)/">
         <Messages />
         {/* Render the component for the messages */}
-      </Route>
-
-      <Route path="/tasks">
-        {/* Render the component for the user's tasks */}
       </Route>
       <Route path="/events">
         {/* Render the component for the user's events */}
