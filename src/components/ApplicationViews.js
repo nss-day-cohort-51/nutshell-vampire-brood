@@ -1,10 +1,15 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { TaskEditForm } from "./tasks/TaskEditForm";
+import { TaskForm } from "./tasks/TaskForm";
+import { TaskList } from "./tasks/TaskList";
 import { UserList } from "./users/UserList";
 import { Messages } from "./messages/Messages";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
+import { EventList } from "./events/EventList";
+import { EventForm } from "./events/EventForm";
 
 export const ApplicationViews = () => {
     return (
@@ -12,11 +17,9 @@ export const ApplicationViews = () => {
             <Route exact path="/">
                 <ArticleList />
             </Route>
-
             <Route exact path="/articles/create">
                 <ArticleForm />
             </Route>
-
             <Route exact path="/articles/:articleId(\d+)/edit">
                 <ArticleEditForm />
             </Route>
@@ -34,11 +37,23 @@ export const ApplicationViews = () => {
                 {/* Render the component for the messages */}
             </Route>
 
-            <Route path="/tasks">
-                {/* Render the component for the user's tasks */}
-            </Route>
-            <Route path="/events">
+            <Route exact path="/events">
+                <EventList />
                 {/* Render the component for the user's events */}
+            </Route>
+            <Route exact path="/events/create">
+                <EventForm />
+            </Route>
+
+            <Route exact path="/tasks">
+                {/* Render the component for the user's tasks */}
+                <TaskList />
+            </Route>
+            <Route path="/tasks/create">
+                <TaskForm />
+            </Route>
+            <Route exact path="/tasks/:taskId(\d+)/edit">
+                <TaskEditForm />
             </Route>
         </>
     );
