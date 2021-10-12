@@ -34,6 +34,7 @@ export const MessageCard = ({
     };
 
     const messageCardMD = !editing ? (
+
         <div className="messageCard">
             <div className="messageCard__content">
                 <div className="messageCard__from">
