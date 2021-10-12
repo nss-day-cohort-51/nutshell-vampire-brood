@@ -3,11 +3,11 @@ import { Route } from "react-router-dom"
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
+import { UserList } from "./users/UserList";
+import { Messages } from "./messages/Messages";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
-import { UserList } from "./users/UserList"
-import { Messages } from "./messages/Messages"
 
 export const ApplicationViews = () => {
   return (
@@ -40,9 +40,14 @@ export const ApplicationViews = () => {
         {/* Render the component for the user's events */}
       </Route>
 
-      <Route exact path="/">
-        {/* Render the component for news articles */}
-      </Route>
+            <Route exact path="/articles/create">
+                <ArticleForm />
+            </Route>
+
+            <Route exact path="/articles/:articleId(\d+)/edit">
+                <ArticleEditForm />
+            </Route>
+
       <Route path="/friends">
         {/* Render the component for list of friends */}
       </Route>
@@ -62,6 +67,25 @@ export const ApplicationViews = () => {
       <Route path="/events">
         {/* Render the component for the user's events */}
       </Route>
-    </>
-  );
+            <Route path="/friends">
+                <UserList />
+                {/* Render the component for list of friends */}
+            </Route>
+            <Route exact path="/messages">
+                <Messages />
+                {/* Render the component for the messages */}
+            </Route>
+            <Route path="/messages/:userId(\d+)/">
+                <Messages />
+                {/* Render the component for the messages */}
+            </Route>
+
+            <Route path="/tasks">
+                {/* Render the component for the user's tasks */}
+            </Route>
+            <Route path="/events">
+                {/* Render the component for the user's events */}
+            </Route>
+        </>
+    );
 };
