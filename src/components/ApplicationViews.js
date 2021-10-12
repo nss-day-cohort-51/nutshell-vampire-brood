@@ -8,6 +8,8 @@ import { Messages } from "./messages/Messages";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
+import { EventList } from "./events/EventList"
+import { EventForm } from "./events/EventForm"
 
 export const ApplicationViews = () => {
   return (
@@ -15,11 +17,9 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         <ArticleList />
       </Route>
-
       <Route exact path="/articles/create">
         <ArticleForm />
       </Route>
-
       <Route exact path="/articles/:articleId(\d+)/edit">
         <ArticleEditForm />
       </Route>
@@ -36,24 +36,15 @@ export const ApplicationViews = () => {
         <Messages />
         {/* Render the component for the messages */}
       </Route>
-      <Route path="/events">
+
+      <Route exact path="/events">
+        <EventList />
         {/* Render the component for the user's events */}
       </Route>
-
-            <Route exact path="/articles/create">
-                <ArticleForm />
-            </Route>
-
-            <Route exact path="/articles/:articleId(\d+)/edit">
-                <ArticleEditForm />
-            </Route>
-
-      <Route path="/friends">
-        {/* Render the component for list of friends */}
+      <Route exact path="/events/create">
+          <EventForm />
       </Route>
-      <Route path="/messages">
-        {/* Render the component for the messages */}
-      </Route>
+
       <Route exact path="/tasks">
         {/* Render the component for the user's tasks */}
         <TaskList />
@@ -64,28 +55,6 @@ export const ApplicationViews = () => {
       <Route exact path="/tasks/:taskId(\d+)/edit">
         <TaskEditForm />
       </Route>
-      <Route path="/events">
-        {/* Render the component for the user's events */}
-      </Route>
-            <Route path="/friends">
-                <UserList />
-                {/* Render the component for list of friends */}
-            </Route>
-            <Route exact path="/messages">
-                <Messages />
-                {/* Render the component for the messages */}
-            </Route>
-            <Route path="/messages/:userId(\d+)/">
-                <Messages />
-                {/* Render the component for the messages */}
-            </Route>
-
-            <Route path="/tasks">
-                {/* Render the component for the user's tasks */}
-            </Route>
-            <Route path="/events">
-                {/* Render the component for the user's events */}
-            </Route>
         </>
     );
 };
