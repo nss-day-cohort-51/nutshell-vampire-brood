@@ -1,11 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { UserList } from "./users/UserList";
-import { Messages } from "./messages/Messages";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
-import { UserList } from "./users/UserList";
 //import { MessageCard } from "./messages/MessageCard";
 import { Messages } from "./messages/Messages";
 import { EventList } from "./events/EventList";

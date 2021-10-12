@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import APIManager from "../../modules/APIManager"
-import "./AnimalForm.css"
 
 const apiEventEditor = new APIManager
 
@@ -39,7 +38,7 @@ export const EventEditForm = () => {
             zip: thisEvent.zip
         };
 
-        update(editedEvent)
+        apiEventEditor.updateEntry(editedEvent)
             .then(() => history.push("/event")
             )
     }

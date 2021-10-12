@@ -8,9 +8,9 @@ import { useRadioGroup } from '@mui/material';
 const apiEventReturn = new APIManager();
 
 
-const loggedInUser = sessionStorage.getItem("nutshell_user");
-const editThisEvent = userId;
-let allowEventEdit = false;
+// const loggedInUser = sessionStorage.getItem("nutshell_user");
+// const editThisEvent = event.userId;
+// let allowEventEdit = false;
 
 
 
@@ -46,9 +46,9 @@ export const EventDetail = () => {
     }, [eventId]);
 
 
-    if (loggedInUser === editThisEvent) {
-        allowEventEdit = true;
-    }
+    // if (loggedInUser === editThisEvent) {
+    //     allowEventEdit = true;
+    // }
 
 
     return (
@@ -65,9 +65,12 @@ export const EventDetail = () => {
 
                 <button className="event__" type="button" disabled={isLoading} onClick={handleDeleteEvent}> Remove Occasion </button>
 
-                {allowEventEdit === true ? <button type="button"
+                {/* {allowEventEdit === true ? <button type="button"
                     onClick={() => history.push(`/events/${event.id}/edit`)}> Edit </button> : <button type="button"
-                    onClick={() => alert("Not allowed to edit this Event")}> Edit </button>}
+                    onClick={() => alert("Not allowed to edit this Event")}> Edit </button>} */}
+
+<button type="button"
+                    onClick={() => history.push(`/events/${event.id}/edit`)}> Edit </button>
 
                 <button type="button" onClick={handleBack}> Go Back </button>
 
