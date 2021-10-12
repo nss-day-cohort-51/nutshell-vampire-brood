@@ -36,7 +36,12 @@ strong {
 }
 
 .messageCard__from {
-    margin-left: 20px;
+    margin-left: 3;
+    margin-bottom: 7px;
+}
+
+.messageCard__text {
+    margin-left: 17px;
 }
 
 .messageUserCard {
@@ -51,6 +56,11 @@ strong {
     margin-left: 10px;
 }
 
+
+.messageList__feed {
+    max-height: 516px;
+    overflow-y: auto;
+}
 
 form {
     display: flex;

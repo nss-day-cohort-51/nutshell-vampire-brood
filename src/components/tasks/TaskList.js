@@ -1,3 +1,4 @@
+import { Grid, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import APIManager from "../../modules/APIManager";
@@ -34,7 +35,6 @@ const getTasks = () => {
     );
   };
 
-
   const updateCompleteTask = (taskObj) => {
     return fetch(`${remoteURL}/tasks/${taskObj.id}`, {
       method: "PUT",
@@ -66,17 +66,18 @@ const getTasks = () => {
   }, []);
 
   return (
-    <>
-    <section className="new-task-button__block">
-        <button type="button"
-            className="btn"
-            onClick={() => {history.push("/tasks/create")}}>
-            New Task
-        </button>
-      </section>
-      <div className="task__container">
-        {tasks.map(task => <TaskCard key={task.id} task={task} user={task.user} handleDeleteTask={handleDeleteTask} handleCompleteTask={handleCompleteTask} />)}
-      </div>
-    </>
-  );
+  <>
+    <Grid container direction="row" justifyContent="center" alignItems="flex-start" spacing={2}>
+      <Grid item xs={12}>
+        <Button onClick={() => {history.push("/tasks/create")}} variant="contained" fullWidth >New Task</Button>
+      </Grid>
+    </Grid>
+    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+          {tasks.map(task => <TaskCard key={task.id} task={task} user={task.user} handleDeleteTask={handleDeleteTask} handleCompleteTask={handleCompleteTask} />)}
+    </Grid>
+  </>
+
+  )
+            
+  
 };

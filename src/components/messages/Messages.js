@@ -40,6 +40,16 @@ export const Messages = () => {
     return (
         <div className="messages">
             <div className="messages__sideBar">
+                <div
+                    onClick={() => setActiveUserId(0)}
+                    className={
+                        activeUserId == 0
+                            ? "messageUserCard active"
+                            : "messageUserCard"
+                    }
+                >
+                    <div className="messageUserCard__user"> Public Chat </div>
+                </div>
                 {totalActiveUsers.map((userId) => (
                     <MessageUserCard
                         key={userId}
