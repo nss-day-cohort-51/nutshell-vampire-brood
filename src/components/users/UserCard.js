@@ -6,7 +6,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import { useHistory } from "react-router";
 import { ConfirmationBox } from "../tools/ConfirmationBox";
 import { useState, useEffect } from "react";
-// export const UserCard = ({ user, friend }) => {
+
 export const UserCard = ({
     user,
     addFriend,
@@ -27,28 +27,16 @@ export const UserCard = ({
         history.push(`/messages/${user.id}`);
     };
 
-    useEffect(() => {
-        // debugger;
-        fetch(
+    const getIsFriend = () => {
+        return fetch(
             `http://localhost:8088/friends?userId=${user.id}&currentUserId=${currentUserId}`
-        )
-            .then((res) => res.json())
-            .then((resObj) => {
-                // debugger;
-                setIsFriend(resObj.length > 0);
-            });
+        ).then((res) => res.json());
+    };
 
-        // if (friendIds) {
-        //     let friendBool = friendIds.includes(user.Id);
-        //     console.log(
-        //         friendId,
-        //         friendIds,
-        //         user.id,
-        //         friendIds.includes(user.Id),
-        //         friendBool
-        //     );
-        //     setIsFriend(friendBool);
-        // }
+    useEffect(() => {
+        getIsFriend().then((resObj) => {
+            setIsFriend(resObj.length > 0);
+        });
     }, [friendIds]);
 
     return (

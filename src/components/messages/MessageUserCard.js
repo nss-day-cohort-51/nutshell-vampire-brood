@@ -13,14 +13,6 @@ export const MessageUserCard = ({
     const [userName, setUserName] = useState();
     const [isFriend, setIsFriend] = useState();
 
-    useEffect(() => {
-        getUserName();
-    }, []);
-
-    useEffect(() => {
-        getIsFriend();
-    });
-
     const getUserName = () => {
         return API.getById("users", userFrom).then((user) => {
             setUserName(user.name);
@@ -37,6 +29,14 @@ export const MessageUserCard = ({
             });
     };
 
+    useEffect(() => {
+        getUserName();
+    }, []);
+
+    useEffect(() => {
+        getIsFriend();
+    }, []);
+
     return (
         <div
             onClick={() => setActiveUserId(userFrom)}
@@ -48,13 +48,7 @@ export const MessageUserCard = ({
         >
             <div className="messageUserCard__user">{userName}</div>
             {isFriend ? null : (
-                <AddUserIcon
-                    userId={userFrom}
-                    handleClick={() => {
-                        alert("getting friends");
-                        getIsFriend();
-                    }}
-                />
+                <AddUserIcon userId={userFrom} handleClick={getIsFriend} />
             )}
         </div>
     );

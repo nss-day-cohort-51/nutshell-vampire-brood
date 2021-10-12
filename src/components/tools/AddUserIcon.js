@@ -10,26 +10,22 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 export const AddUserIcon = ({ userId, handleClick }) => {
     const API = new APIManager();
-    const [confirmAddBoxIsOpen, setConfirmAddBoxIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
 
     const addFriend = () => {
         const friendObj = { userId: userId, currentUserId: currentUserId };
-        API.addEntry("friends", friendObj);
+        return API.addEntry("friends", friendObj);
     };
 
     return (
         <div className="userCard__icon">
             <PersonAddIcon
                 onClick={() => {
-                    setConfirmAddBoxIsOpen(true);
+                    setOpen(true);
                 }}
             />
-            <Dialog
-                open={confirmAddBoxIsOpen}
-                onClose={() => setConfirmAddBoxIsOpen(false)}
-                aria-labelledby="confirm-dialog"
-            >
+            <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogTitle id="confirm-dialog">Add Friend</DialogTitle>
                 <DialogContent>
                     Are you sure you want to add friend?
@@ -37,7 +33,7 @@ export const AddUserIcon = ({ userId, handleClick }) => {
                 <DialogActions>
                     <Button
                         variant="contained"
-                        onClick={() => setConfirmAddBoxIsOpen(false)}
+                        onClick={() => setOpen(false)}
                         color="secondary"
                     >
                         No
@@ -45,9 +41,8 @@ export const AddUserIcon = ({ userId, handleClick }) => {
                     <Button
                         variant="contained"
                         onClick={() => {
-                            setConfirmAddBoxIsOpen(false);
-                            addFriend();
-                            handleClick();
+                            setOpen(false);
+                            addFriend().then(handleClick);
                         }}
                     >
                         Yes

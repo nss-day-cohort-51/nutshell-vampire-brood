@@ -6,7 +6,6 @@ import { MessageUserCard } from "./MessageUserCard";
 import { useParams } from "react-router";
 
 export const Messages = () => {
-    const [messages, setMessages] = useState([]);
     const [totalActiveUsers, setTotalActiveUsers] = useState([]);
 
     let { userId } = useParams();
@@ -14,15 +13,17 @@ export const Messages = () => {
     const [activeUserId, setActiveUserId] = useState(userId || 0);
 
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
-    // const API = new APIManager();
 
+    // find any users who you have sent pr received messages from
     const getTotalActiveUsers = () => {
         fetch(
             `http://localhost:8088/messages?userToId=${currentUserId}&_expand=user`
         )
             .then((result) => result.json())
             .then((messageObjs) => {
+                // if directed here route param id -> make sure the user displays as active
                 let activeUsersArray = userId ? [userId] : [];
+                // check entire usar message history and add all unique sender/reciever userIds
                 messageObjs.forEach((messageObj) => {
                     if (!activeUsersArray.includes(messageObj.userId)) {
                         activeUsersArray.push(messageObj.userId);
@@ -32,18 +33,7 @@ export const Messages = () => {
             });
     };
 
-    const getActiveMessages = () => {
-        fetch(
-            `http://localhost:8088/messages?userToId=${currentUserId}&userId=${activeUserId}&_expand=user`
-        )
-            .then((result) => result.json())
-            .then((messageObjs) => {
-                setMessages(messageObjs);
-            });
-    };
-
     useEffect(() => {
-        getActiveMessages();
         getTotalActiveUsers();
     }, []);
 

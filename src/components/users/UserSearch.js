@@ -1,13 +1,10 @@
 import React from "react";
 import { UserCard } from "./UserCard";
 import { useState, useEffect } from "react";
-// import APIManager from "../../modules/APIManager";
 import { SearchBar } from "./../tools/SearchBar.js";
 import "./Users.css";
 
 export const UserSearch = ({ addFriend, deleteFriend, friendList }) => {
-    // const API = new APIManager();
-
     const [friendIds, setFriendIds] = useState([]);
     const [users, setUsers] = useState([]);
     const [searchParams, setSearchParams] = useState("");

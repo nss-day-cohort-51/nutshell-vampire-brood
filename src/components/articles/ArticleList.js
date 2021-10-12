@@ -19,7 +19,19 @@ export const ArticleList = () => {
 
     // EDIT : COLIN
 
+    // - replaced getArticles -> getActive articles in order to only display articles
+    // from users who are in you friend list
+
     const [friendIdArray, setFriendIdArray] = useState([]);
+
+    // set friendIdArray to be the id's of all friends
+    const getActiveFriends = () => {
+        return apiManager.getFriends().then((friendsRes) => {
+            setFriendIdArray(friendsRes.map((friend) => friend.userId));
+        });
+    };
+
+    // get articles for only you and friends
     const getActiveArticles = () => {
         return apiManager
             .getAllByUserArray("articles", [...friendIdArray], ["user"])
@@ -29,27 +41,14 @@ export const ArticleList = () => {
             .then(console.log(articles));
     };
 
-    const getActiveFriends = () => {
-        return apiManager.getFriends().then((friendsRes) => {
-            setFriendIdArray(friendsRes.map((friend) => friend.userId));
-        });
-    };
-
     useEffect(() => {
         getActiveFriends();
     }, []);
     useEffect(() => {
         getActiveArticles();
     }, [friendIdArray]);
-    // END EDIT
 
-    // const getUserArticles = (userId) => {
-    //     return apiManager
-    //         .getAllByUserId("articles", userId, ["user"])
-    //         .then((userArticle) => {
-    //             setArticles(userArticle);
-    //         });
-    // };
+    // END EDIT
 
     // useEffect(() => {
     //     getArticles();
