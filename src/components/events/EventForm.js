@@ -4,13 +4,17 @@ import { useHistory } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
 import "./Event.css";
 const apiEventManager = new APIManager();
+const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
 export const EventForm = () => {
     // State will contain both event data as well as an isLoading flag.
     // Define the initial state of the form inputs with useState()
 
+    // State will contain both event data as well as an isLoading flag.
+    // Define the initial state of the form inputs with useState()
+
     const [thisEvent, setEvent] = useState({
-        userId: "",
+        userId: currentUser,
         name: "",
         location: "",
         dateStart: "",

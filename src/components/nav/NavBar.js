@@ -2,6 +2,7 @@ import React from "react";
 import { RT } from "../tools/HelperFunctions";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Weather } from "../../modules/Weather";
 export const NavBar = (props) => {
     return (
         <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
@@ -32,6 +33,7 @@ export const NavBar = (props) => {
                     </Link>
                 </li>
             </ul>
+            <Weather />
         </nav>
     );
 };

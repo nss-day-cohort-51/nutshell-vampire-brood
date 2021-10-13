@@ -3,10 +3,18 @@ import { RT } from "../tools/HelperFunctions";
 import { Link, useHistory } from "react-router-dom";
 import "./Event.css";
 import { dateTimeFormatter } from "../../tools/dateTimeHelper";
+<<<<<<< HEAD
+=======
+
+
+const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
+
+>>>>>>> main
 export const EventCard = ({ event, index, handleDeleteEvent }) => {
     const eventStart = dateTimeFormatter(event.dateStart);
     const eventEnd = dateTimeFormatter(event.dateEnd);
     const history = useHistory();
+<<<<<<< HEAD
     const eventCardContent =
         index === 0 ? (
             //Event is the next in line
@@ -103,6 +111,53 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
                 </div>
             </section>
         );
+=======
+    const eventCardContent = index === 0 ?
+
+        //Event is the next in line
+        //Will be styled individually different from the rest of the Event cards
+        (<section className="eventCardFirst">
+
+            <h3 className="eventCardFirst__name">
+                <Link to={`/events/${event.id}`}> {event.name}</Link>
+            </h3>
+
+            <div className="eventCardFirst__startDate">
+                Beginning: {eventStart}
+            </div>
+
+            {eventEnd ? <div className="eventCardFirst__endDate"> Ending: {eventEnd} </div> : <div className="eventCardFirst__endDate"> Ending: No ending available </div>}
+
+            {event.location ? <div className="eventCardFirst__location"> Place: {event.location} </div> : <div className="eventCardFirst__location"> Place: Everywhere </div>}
+
+            {currentUser === event.userId ? <div className="event__deleteButton"> <button type="button" onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
+            <div className="event__deleteButton"> <button type="button" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}
+
+        </section>)
+
+        :
+
+        //Event is not next in line
+        //will be styled the same as the rest of Event cards
+        (<section className="eventCard">
+
+            <h3 className="eventCard__name">
+                <Link to={`/events/${event.id}`}> {event.name}</Link>
+            </h3>
+
+            <div className="eventCard__startDate">
+                Beginning: {eventStart}
+            </div>
+
+            {eventEnd ? <div className="eventCard__endDate"> Ending: {eventEnd} </div> : <div className="eventCard__endDate"> Ending: No ending available </div>}
+
+            {event.location ? <div className="eventCard__location"> Place: {event.location} </div> : <div className="eventCard__location"> Place: Everywhere </div>}
+
+            {currentUser === event.userId ? <div className="event__deleteButton"> <button type="button" onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
+            <div className="event__deleteButton"> <button type="button" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}
+        </section>)
+
+>>>>>>> main
 
     //We will return the proper Event Card here based on the Index value above
     //Index === 0, we get the fancy Event Card

@@ -72,7 +72,15 @@ export const MessageCard = ({
                     />
                 </fieldset>
                 <fieldset>
-                    <button type="submit">Send</button>
+                    <button
+                        type="submit"
+                        onClick={(event) => {
+                            event.preventDefault();
+                            setEditing(false);
+                        }}
+                    >
+                        Send
+                    </button>
                 </fieldset>
             </form>
         </div>
