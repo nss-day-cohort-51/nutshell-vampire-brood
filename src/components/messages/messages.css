@@ -145,10 +145,10 @@ body, html {
     transform: translateY(32%);
 }
 
-
+/* 
 form {
     display: flex;
-}
+} */
 
 .message {
     margin: 0 10px;
