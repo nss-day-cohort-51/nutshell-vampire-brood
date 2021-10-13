@@ -1,4 +1,5 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import { MessageList } from "./MessageList";
 // import APIManager from "../../modules/APIManager";
 import { useState, useEffect } from "react";
@@ -48,7 +49,10 @@ export const Messages = () => {
                             : "messageUserCard"
                     }
                 >
-                    <div className="messageUserCard__user"> Public Chat </div>
+                    <div className="messageUserCard__user">
+                        {" "}
+                        {RT("Public Chat")}{" "}
+                    </div>
                 </div>
                 {totalActiveUsers.map((userId) => (
                     <MessageUserCard

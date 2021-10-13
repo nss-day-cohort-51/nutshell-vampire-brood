@@ -1,4 +1,5 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import "./Users.css";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
@@ -6,7 +7,6 @@ import MessageIcon from "@mui/icons-material/Message";
 import { useHistory } from "react-router";
 import { ConfirmationBox } from "../tools/ConfirmationBox";
 import { useState, useEffect } from "react";
-
 export const UserCard = ({
     user,
     addFriend,
@@ -42,8 +42,8 @@ export const UserCard = ({
     return (
         <div className="userCard">
             <div className="userCard__info">
-                <h3 className="userCard__name">{user.name}</h3>
-                <p className="userCard__email">{user.email}</p>
+                <h3 className="userCard__name">{RT(user.name)}</h3>
+                <p className="userCard__email">{RT(user.email)}</p>
             </div>
             <div className="userCard__interaction">
                 {isFriendState ? (
@@ -78,7 +78,7 @@ export const UserCard = ({
                             deleteFriend(friendId);
                         }}
                     >
-                        Are you sure you want to delete friend?
+                        {RT("Are you sure you want to delete friend?")}
                     </ConfirmationBox>
                     <ConfirmationBox
                         title="Add Friend?"
@@ -89,7 +89,7 @@ export const UserCard = ({
                             setIsFriend(true);
                         }}
                     >
-                        Are you sure you want to add friend?
+                        {RT("Are you sure you want to add friend?")}
                     </ConfirmationBox>
                 </div>
             </div>
