@@ -1,5 +1,33 @@
 # Reactive Nutshell: The Information Dashboard
 
+## The Vampire Brood
+| [:link: Colin Miller](https://github.com/colinrmiller) | [:link: Chris Murphy](https://github.com/cwmurphy99) | [:link: Joshua Stewart](https://github.com/joshuastewart417) | [:link: Michael Wright](https://github.com/sm3dev) |
+|---|---|---|---|
+
+## How Nutshell Works in a Nutshell
+* Once a user visits the homepage, they will need to login or register for an account.
+#### Articles - Collection of articles to read later
+* After logging in, all Articles are displayed in the main content window, and inside the navbar, today's weather is displayed.
+* Any logged in User can submit a new article, and if an article was published by the logged in User, the edit and delete buttons can be clicked to perform their respective functions.
+#### Friends - Interact with other users
+* From the navigation menu, a user click Friends to view and edit current friends or add new Friends from the list Nutshell users. A user has has the ability to add and remove a Friend at any time they're logged in.
+#### Messages - Privately message inside the App
+* Another great Friends feature is the ability to private message other users.
+* If a user has a message conversation started, they can access the messenger by clicking Messages in the navigation menu. Here a user can their chat history with anyone they've send/recieved a message with.
+* Thanks to feedback from Nutshell users, Messages features the ability to edit or delete previously sent messages.
+#### Task - The To Do list you'll totally get to
+* From the nav menu, click Tasks to display a list of *to do* items that belong to the logged in user to complete each with a due date, task name, and notes. Inside the task view, a user can create a new task or edit/delete an existing task
+* When a task is complete, a user can simply click the checkbox inside the task's card, and the task is removed from the task list.
+#### Events - Save the dates...and address
+* Events allow a logged in user to annotate and track events they're interested in attending. From the nav menu, click Events to be taken to a list of saved Events.
+* Like Articles, if an event was published by the logged in User, the edit and delete buttons can be clicked to perform their respective functions.
+
+## Entity Relationship Diagram \(ERD\)
+![Nutshell Vampire Brood ERD](public/images/ERD-nutshell-vampire-brood.png)
+
+## Wireframe, Component View 
+![Nutshell Vampire Brood ](public/images/WireFrame-Nutshell-VampireBrood.drawio.png)
+
 ## Setup: Follow these steps exactly
 
 1. Clone this repository
