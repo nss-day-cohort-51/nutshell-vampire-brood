@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Weather } from "../../modules/Weather";
+import { Button } from "@mui/material";
+import { useHistory } from "react-router";
 
 export const NavBar = (props) => {
+  const history = useHistory();
+
   return (
     <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
       <ul className="nav nav-pills nav-fill">
@@ -33,6 +37,7 @@ export const NavBar = (props) => {
           </Link>
         </li>
       </ul>
+      <Button onClick={ () => {sessionStorage.clear(); history.push(`/login`)}}>Log out</Button>
       <Weather />
     </nav>
   );
