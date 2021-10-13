@@ -58,7 +58,174 @@ strong {
 
 
 .messageList__feed {
-    max-height: 516px;
+    height: 346px;
     overflow-y: auto;
 }
 
+
+
+
+p {
+    margin: 0;
+    margin-bottom:0;
+    padding: 0;
+
+}
+
+h5 { 
+    padding: 0 !important;
+    margin:0 !important;
+}
+
+strong {
+    color: grey;
+    top:-10px
+}
+
+.div {
+    padding: 0 !important;
+}
+
+body, html { 
+    height: 100% ;
+    margin: 0;
+}
+#root {
+    height: 90vh ;
+}
+.messages {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.messages__sideBar {
+    flex: 1;
+    background: lightgray;
+    height: 100%;
+    /* border-right: 1px solid grey */
+
+}
+
+.messages__feed {
+    flex: 3;
+    /* border-left: 1px solid grey */
+}
+
+.messageCard {
+    margin: 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    /* padding: 5px; */
+}
+
+.messageCard__from {
+    margin-left: 20px;
+}
+
+.messageUserCard {
+    height: 70px;
+    /* border-bottom: solid 1px grey; */
+    border-radius: 20px;
+    margin-block: 20px;
+    box-shadow: 0 0 4px;
+    display: flex;
+    margin-inline: 10px;
+}
+
+.activeUser {
+    color: white;
+    background-color: blue !important;
+}
+
+.messageUserCard__user {
+    /* margin: auto !important; */
+    margin-left: 16px !important;
+    height: 100%;
+    transform: translateY(32%);
+}
+
+
+form {
+    display: flex;
+}
+
+.message {
+    margin: 0 10px;
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.message__user {
+    margin-left: auto;
+    text-align: left !important;
+}
+
+.message__userCard {
+    background-color: #0b81ff !important;
+    color: #fff !important;
+    border-radius:10px !important;
+    box-shadow: none !important;
+}
+
+.message__guestCard {
+    background-color: #e9e9eb !important;
+    box-shadow: none !important;
+    border-radius:10px !important;
+
+}
+
+.messageList {
+    flex:3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.messageList__body {
+    max-height: 85%;
+    overflow-y: auto;
+    
+
+}
+
+.messageList__input {
+    height: 75px;
+}
+
+.messageInput__input {
+    border: "1px solid black";
+    border-radius: "5px";
+    padding: "0px !important";
+    margin: "0";
+    width: "80%";
+    margin-inline: "10px";
+}
+.messageInput {
+    border-top: solid 1px grey !important;
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+
+
+::-webkit-scrollbar {
+    width:10px; 
+    background-color: grey;
+}
+
+::-webkit-scrollbar-thumb {
+    width:10px; 
+    background-color: grey;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    width:10px; 
+    background-color: lightgray;
+}
+
+::-webkit-scrollbar:hover {
+    width:10px; 
+    background-image: lightgrey;
+}

@@ -5,6 +5,8 @@ import APIManager from "../../modules/APIManager";
 import { MessageCard } from "./MessageCard";
 import "./messages.css";
 import { useRef } from "react";
+import { MessageComp } from "./MessageComp";
+
 export const MessageList = ({ activeUserId }) => {
     const [userMessages, setUserMessages] = useState([]);
     const [messageText, setMessageText] = useState([]);
@@ -83,13 +85,22 @@ export const MessageList = ({ activeUserId }) => {
                     <h1 className="messageList__header">Messages</h1>
                     <div className="messageList__feed">
                         {userMessages.map((message) => (
-                            <MessageCard
+                            // <MessageCard
+                            //     key={message?.id}
+                            //     text={message?.text}
+                            //     userFrom={message?.user}
+                            //     messageId={message?.id}
+                            //     message={message}
+                            //     refreshMessages={getActiveMessages}
+                            // />
+                            <MessageComp
                                 key={message?.id}
                                 text={message?.text}
-                                userFrom={message?.user}
-                                messageId={message?.id}
-                                message={message}
-                                refreshMessages={getActiveMessages}
+                                userFrom={
+                                    message.user?.id !== currentUserId &&
+                                    message?.user
+                                }
+                                username={message?.user?.name}
                             />
                         ))}
                         <div
