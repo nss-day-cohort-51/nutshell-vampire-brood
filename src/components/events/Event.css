@@ -99,7 +99,6 @@ h3{
   border: 3px solid #dfffbe;
   border-radius: 5px;
   background-color: #c7ccd8;
-  width: 25%;
 }
 .event__editSubmitButton {
   width: 100%;
@@ -118,6 +117,7 @@ h3{
     padding-bottom: .20%;
   }
 .eventForm {
+  display: block;
   flex-basis: 28%;
   margin: 1em;
   padding: 6.8px;

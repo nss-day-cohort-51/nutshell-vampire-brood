@@ -7,7 +7,6 @@ import { RT } from "../tools/HelperFunctions";
 import "./messages.css";
 
 export const MessageComp = forwardRef(({ text, username, userFrom }, ref) => {
-    // debugger;
     // const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
 
     // displays true if userFrom == undefined

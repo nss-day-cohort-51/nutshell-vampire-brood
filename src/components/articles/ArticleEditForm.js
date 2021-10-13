@@ -10,7 +10,6 @@ export const ArticleEditForm = () => {
         synopsis: "",
     });
     const { articleId } = useParams();
-    debugger;
     const apiManager = new APIManager();
     const history = useHistory();
 
