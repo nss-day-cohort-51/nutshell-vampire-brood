@@ -29,8 +29,8 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
 
             {event.location ? <div className="eventCardFirst__location"> Place: {event.location} </div> : <div className="eventCardFirst__location"> Place: Everywhere </div>}
 
-            {currentUser === event.userId ? <div className="event__deleteButton"> <button type="button" onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
-            <div className="event__deleteButton"> <button type="button" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}
+            {currentUser === event.userId ? <div> <button type="button" className="event__deleteButton" onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
+            <div> <button type="button" className="event__deleteButton" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}
 
         </section>)
 
@@ -52,8 +52,8 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
 
             {event.location ? <div className="eventCard__location"> Place: {event.location} </div> : <div className="eventCard__location"> Place: Everywhere </div>}
 
-            {currentUser === event.userId ? <div className="event__deleteButton"> <button type="button" onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
-            <div className="event__deleteButton"> <button type="button" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}
+            {currentUser === event.userId ? <div> <button type="button" className="event__deleteButton"onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
+            <div><button type="button" className="event__deleteButton" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}
         </section>)
 
 

@@ -57,119 +57,130 @@ export const EventEditForm = () => {
             });
     }, []);
 
-
-
-  
-
-
-
-
+    const handleBack = () => {
+        history.push("/events/" + eventId + "/");
+    }
 
     return (
         <>
-            <form>
-                <fieldset>
-                    <div className="formgrid">
+            <section className="event__editForm">
+                <form>
+                    <fieldset>
+                        <div className="formgrid">
 
-                        {/* INPUT FIELD TO MODIFY EVENT NAME */}
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.name}
-                        />
-                        <label htmlFor="name" >Name of Occurrence</label>
+                            {/* INPUT FIELD TO MODIFY EVENT NAME */}
+                            <label htmlFor="name" >Name of Occurrence</label>
 
-                        {/* INPUT FIELD TO MODIFY EVENT LOCATION */}
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.location}
-                        />
-                        <label htmlFor="name">Place of Occurence</label>
+                            <input
+                                type="text"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.name}
+                            />
 
-                        {/* INPUT FIELD TO MODIFY EVENT START DATE */}
-                        <input
-                            type="date"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.dateStart}
-                        />
-                        <label htmlFor="name">Beginning of Occurrence</label>
+                            {/* INPUT FIELD TO MODIFY EVENT LOCATION */}
+                            <label htmlFor="name">Place of Occurence</label>
 
-                        {/* INPUT FIELD TO MODIFY EVENT END DATE */}
-                        <input
-                            type="date"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.dateEnd}
-                        />
-                        <label htmlFor="name">End of Occurrence</label>
+                            <input
+                                type="text"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.location}
+                            />
 
-                        {/* INPUT FIELD TO MODIFY EVENT ADDRESS */}
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.address}
-                        />
-                        <label htmlFor="name">Address</label>
+                            {/* INPUT FIELD TO MODIFY EVENT START DATE */}
+                            <label htmlFor="name">Beginning of Occurrence</label>
 
-                        {/* INPUT FIELD TO MODIFY EVENT CITY */}
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.city}
-                        />
-                        <label htmlFor="name">City</label>
+                            <input
+                                type="date"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.dateStart}
+                            />
 
-                        {/* INPUT FIELD TO MODIFY EVENT STATE */}
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.state}
-                        />
-                        <label htmlFor="name">State</label>
+                            {/* INPUT FIELD TO MODIFY EVENT END DATE */}
+                            <label htmlFor="name">End of Occurrence</label>
 
-                        {/* INPUT FIELD TO MODIFY EVENT ZIP */}
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={handleFieldChange}
-                            id="name"
-                            value={thisEvent.zip}
-                        />
-                        <label htmlFor="name">Zip</label>
-                    </div>
+                            <input
+                                type="date"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.dateEnd}
+                            />
+
+                            {/* INPUT FIELD TO MODIFY EVENT ADDRESS */}
+                            <label htmlFor="name">Address</label>
+
+                            <input
+                                type="text"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.address}
+                            />
+
+                            {/* INPUT FIELD TO MODIFY EVENT CITY */}
+                            <label htmlFor="name">City</label>
+
+                            <input
+                                type="text"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.city}
+                            />
+
+                            {/* INPUT FIELD TO MODIFY EVENT STATE */}
+                            <label htmlFor="name">State</label>
+
+                            <input
+                                type="text"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.state}
+                            />
+
+                            {/* INPUT FIELD TO MODIFY EVENT ZIP */}
+                            <label htmlFor="name">Zip</label>
+
+                            <input
+                                type="text"
+                                required
+                                className="form-control"
+                                onChange={handleFieldChange}
+                                id="name"
+                                value={thisEvent.zip}
+                            />
+
+                            {/* SUBMIT BUTTON FOR AFTER EDIT IS COMPLETE */}
+                            <div className="event__editSubmit__">
+                                <button
+                                    type="button" className="event__editSubmitButton" disabled={isLoading}
+                                    onClick={updateExistingEvent}
+                                >Submit</button>
+                            </div>
+
+                            <button type="button" className="event__goBack" onClick={handleBack}> Go Back </button>
+
+                        </div>
 
 
-                    <div className="alignRight">
-                        <button
-                            type="button" disabled={isLoading}
-                            onClick={updateExistingEvent}
-                            className="btn btn-primary"
-                        >Submit</button>
-                    </div>
-                </fieldset>
-            </form>
+
+                    </fieldset>
+                </form>
+            </section>
         </>
     );
 }
