@@ -48,27 +48,41 @@ export const EventDetail = () => {
     }, [eventId]);
 
     return (
-        <div className="event__details__">
-            <section className="event">
+        <section className="event">
+            <div className="event__details__">
                 <h3 className="event__name">
                     {" "}
-                    <strong> Name: </strong> {event.name}
+                    <strong> Name: {RT(event.name)} </strong>
                 </h3>
 
                 <div className="event__details">
                     {" "}
-                    <strong> Venue: </strong> {event.location}
+                    <strong> Venue: </strong> {RT(event.location)}{" "}
                 </div>
 
                 <div className="event__details">
                     {" "}
-                    <strong> Address: </strong> {event.address} {event.city},{" "}
-                    {event.state} {event.zip}{" "}
+                    <strong> Address: </strong> {RT(event.address)}{" "}
+                </div>
+
+                <div className="event__details">
+                    {" "}
+                    <strong> {RT("City")}: </strong> {RT(event.city)}{" "}
+                </div>
+
+                <div className="event__details">
+                    {" "}
+                    <strong> State: </strong> {RT(event.state)}{" "}
+                </div>
+
+                <div className="event__details">
+                    {" "}
+                    <strong> Zip: </strong> {RT(event.zip)}{" "}
                 </div>
 
                 {event.user === currentUser ? (
                     <button
-                        className="event__"
+                        className="event__deleteButton"
                         type="button"
                         disabled={isLoading}
                         onClick={handleDeleteEvent}
@@ -80,6 +94,7 @@ export const EventDetail = () => {
                     <button
                         className="event__"
                         type="button"
+                        className="event__deleteButton"
                         disabled={isLoading}
                         onClick={() =>
                             alert("Not allowed to deleted this Event")
@@ -93,6 +108,7 @@ export const EventDetail = () => {
                 {event.user === currentUser ? (
                     <button
                         type="button"
+                        className="event__editButton"
                         onClick={() => history.push(`/events/${eventId}/edit`)}
                     >
                         {" "}
@@ -101,21 +117,23 @@ export const EventDetail = () => {
                 ) : (
                     <button
                         type="button"
+                        className="event__editButton"
                         onClick={() => alert("Not allowed to edit this Event")}
                     >
                         {" "}
-                        {RT("Edit")}{" "}
+                        Edit{" "}
                     </button>
                 )}
 
-                {/* <button type="button"
-                    onClick={() => history.push(`/events/${eventId}/edit`)}> Edit </button> */}
-
-                <button type="button" onClick={handleBack}>
+                <button
+                    type="button"
+                    className="event__goBack"
+                    onClick={handleBack}
+                >
                     {" "}
                     Go Back{" "}
                 </button>
-            </section>
-        </div>
+            </div>
+        </section>
     );
 };

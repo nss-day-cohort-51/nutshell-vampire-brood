@@ -82,8 +82,6 @@ export const EventForm = () => {
     return (
         <section className="eventForm__container">
             <form className="eventForm">
-                <h2 className="eventForm__title">New Occasion</h2>
-
                 <fieldset>
                     {" "}
                     {/* GATHER THE NAME OF THE EVENT */}
@@ -96,7 +94,7 @@ export const EventForm = () => {
                             required
                             autoFocus
                             className="form-control"
-                            placeholder="Name of Occasion"
+                            placeholder="Name of Event"
                             value={thisEvent.name}
                         />
                     </div>
@@ -181,7 +179,7 @@ export const EventForm = () => {
                     {" "}
                     {/* GATHER THE STATE OF THE EVENT */}
                     <div className="form-group">
-                        <label htmlFor="state">{RT("State:")}</label>
+                        <label htmlFor="state">State:</label>
                         <input
                             type="state"
                             id="state"
@@ -206,10 +204,10 @@ export const EventForm = () => {
                     </div>
                 </fieldset>
                 <button
-                    className="btn btn-primary"
+                    className="event__saveButton"
                     onClick={handleClickSaveEvent}
                 >
-                    {RT("Save event")}
+                    Save Occasion
                 </button>
             </form>
         </section>

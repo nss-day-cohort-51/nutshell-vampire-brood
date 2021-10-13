@@ -10,6 +10,11 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
     const eventStart = dateTimeFormatter(event.dateStart);
     const eventEnd = dateTimeFormatter(event.dateEnd);
     const history = useHistory();
+
+    const handleMoreDetails = () => {
+        history.push("/events/" + event.id + "/");
+    };
+
     const eventCardContent =
         index === 0 ? (
             //Event is the next in line
@@ -47,11 +52,21 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
                     </div>
                 )}
 
+                <button
+                    className="event__detailsButton"
+                    type="button"
+                    onClick={handleMoreDetails}
+                >
+                    {" "}
+                    {RT("More Details")}{" "}
+                </button>
+
                 {currentUser === event.userId ? (
-                    <div className="event__deleteButton">
+                    <div>
                         {" "}
                         <button
                             type="button"
+                            className="event__deleteButton"
                             onClick={() => {
                                 handleDeleteEvent(event.id);
                             }}
@@ -61,10 +76,11 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
                         </button>{" "}
                     </div>
                 ) : (
-                    <div className="event__deleteButton">
+                    <div>
                         {" "}
                         <button
                             type="button"
+                            className="event__deleteButton"
                             onClick={() =>
                                 alert("Not allowed to delete this Event")
                             }
@@ -111,11 +127,21 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
                     </div>
                 )}
 
+                <button
+                    className="event__detailsButton"
+                    type="button"
+                    onClick={handleMoreDetails}
+                >
+                    {" "}
+                    {RT("More Details")}{" "}
+                </button>
+
                 {currentUser === event.userId ? (
-                    <div className="event__deleteButton">
+                    <div>
                         {" "}
                         <button
                             type="button"
+                            className="event__deleteButton"
                             onClick={() => {
                                 handleDeleteEvent(event.id);
                             }}
@@ -125,10 +151,10 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
                         </button>{" "}
                     </div>
                 ) : (
-                    <div className="event__deleteButton">
-                        {" "}
+                    <div>
                         <button
                             type="button"
+                            className="event__deleteButton"
                             onClick={() =>
                                 alert("Not allowed to delete this Event")
                             }

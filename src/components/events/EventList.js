@@ -39,7 +39,7 @@ export const EventList = () => {
                         history.push("/events/create");
                     }}
                 >
-                    New Occasion
+                    Create New Occasion
                 </button>
 
                 {/* use .map to loop through the event cards and print them out */}
