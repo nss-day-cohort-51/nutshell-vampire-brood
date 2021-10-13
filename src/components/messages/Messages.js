@@ -45,7 +45,7 @@ export const Messages = () => {
                     onClick={() => setActiveUserId(0)}
                     className={
                         activeUserId == 0
-                            ? "messageUserCard active"
+                            ? "messageUserCard activeUser"
                             : "messageUserCard"
                     }
                 >
