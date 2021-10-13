@@ -1,11 +1,11 @@
 import React from "react";
+import { RT } from "./tools/HelperFunctions";
 import { Route } from "react-router-dom";
 import { UserList } from "./users/UserList";
 import { Messages } from "./messages/Messages";
 import { ArticleList } from "../components/articles/ArticleList";
 import { ArticleForm } from "../components/articles/ArticleForm";
 import { ArticleEditForm } from "../components/articles/ArticleEditForm";
-
 export const ApplicationViews = () => {
     return (
         <>

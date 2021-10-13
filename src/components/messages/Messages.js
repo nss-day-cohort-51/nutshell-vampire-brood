@@ -1,4 +1,5 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import { MessageList } from "./MessageList";
 // import APIManager from "../../modules/APIManager";
 import { useState, useEffect } from "react";

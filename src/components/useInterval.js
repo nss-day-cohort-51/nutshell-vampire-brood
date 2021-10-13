@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-
+import { RT } from "./tools/HelperFunctions";
 export const useInterval = (callback, delay) => {
     const savedCallback = useRef();
 
@@ -14,4 +14,4 @@ export const useInterval = (callback, delay) => {
             return () => clearInterval(id);
         }
     }, [callback, delay]);
-}
+};

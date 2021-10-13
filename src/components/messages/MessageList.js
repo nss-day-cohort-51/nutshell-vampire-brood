@@ -1,15 +1,15 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import { useState, useEffect } from "react";
 import APIManager from "../../modules/APIManager";
 import { MessageCard } from "./MessageCard";
 import "./messages.css";
 import { useRef } from "react";
-
 export const MessageList = ({ activeUserId }) => {
     const [userMessages, setUserMessages] = useState([]);
-    const [messageText, setMessageText] = useState("");
+    const [messageText, setMessageText] = useState([]);
 
-    // const [messagesEnd, setMessagesEnd] = useState("");
+    // const [messagesEnd, setMessagesEnd] = useState ;
     let messagesEnd = useRef();
 
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
@@ -105,7 +105,6 @@ export const MessageList = ({ activeUserId }) => {
                         className="messageList__input-box"
                         onSubmit={(event) => {
                             handleSubmit(event);
-                            // setMessageText("");
                         }}
                     >
                         <fieldset>

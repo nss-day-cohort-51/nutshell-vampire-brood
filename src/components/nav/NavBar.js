@@ -1,15 +1,14 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { replaceT } from "../tools/HelperFunctions";
-
 export const NavBar = (props) => {
     return (
         <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
             <ul className="nav nav-pills nav-fill">
                 <li className="nav-item">
                     <Link className="nav-link" to="/">
-                        {replaceT("Articles")}
+                        {RT("Articles")}
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -29,7 +28,7 @@ export const NavBar = (props) => {
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/events">
-                        {replaceT("Events")}
+                        {RT("Events")}
                     </Link>
                 </li>
             </ul>
