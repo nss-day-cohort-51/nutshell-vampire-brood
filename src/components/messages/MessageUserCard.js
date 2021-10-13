@@ -1,4 +1,5 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import { useState, useEffect } from "react";
 import APIManager from "../../modules/APIManager";
 import { AddUserIcon } from "../tools/AddUserIcon";
@@ -46,7 +47,7 @@ export const MessageUserCard = ({
                     : "messageUserCard"
             }
         >
-            <div className="messageUserCard__user">{userName}</div>
+            <div className="messageUserCard__user">{RT(userName)}</div>
             {isFriend ? null : (
                 <AddUserIcon userId={userFrom} handleClick={getIsFriend} />
             )}

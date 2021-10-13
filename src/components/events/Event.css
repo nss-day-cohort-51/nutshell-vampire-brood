@@ -76,7 +76,13 @@ h3{
   border: 1px solid #dfffbe;
   color: #c7ccd8;
 }
-
+.event__detailsButton {
+  width: 100%;
+  margin-top: 5px;
+  background-color: #767b91;
+  border: 1px solid #dfffbe;
+  color: #c7ccd8;
+}
 
 
 /* THIS WILL BE FOR THE EVENT EDIT FOR PAGE LOCATED IN EVENTEDITFORM.JS */

@@ -10,6 +10,10 @@
 # Testing Instructions
 
 
+ADDITION:
+Added a "More Details" button on the Event Card.
+Added styling to fall in-line with existing buttons.
+
 # Checklist:
 
 - [] My code follows the style guidelines of this project

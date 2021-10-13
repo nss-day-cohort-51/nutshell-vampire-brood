@@ -1,4 +1,5 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Weather } from "../../modules/Weather";
@@ -41,4 +42,5 @@ export const NavBar = (props) => {
       <Weather />
     </nav>
   );
+
 };

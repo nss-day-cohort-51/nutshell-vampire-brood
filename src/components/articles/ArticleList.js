@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { RT } from "../tools/HelperFunctions";
 import { useHistory } from "react-router-dom";
 
 import APIManager from "../../modules/APIManager";
 import { ArticleCard } from "./ArticleCard";
-
 export const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const [users, setUsers] = useState([]);
@@ -75,7 +75,7 @@ export const ArticleList = () => {
                         history.push("/articles/create");
                     }}
                 >
-                    Post Article
+                    {RT("Post Article")}
                 </button>
             </section>
             <div className="container-cards">

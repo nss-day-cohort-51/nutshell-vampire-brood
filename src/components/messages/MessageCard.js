@@ -1,8 +1,8 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import APIManager from "../../modules/APIManager";
 import "./messages.css";
 import { useState } from "react";
-
 export const MessageCard = ({
     text,
     userFrom,
@@ -37,16 +37,18 @@ export const MessageCard = ({
         <div className="messageCard">
             <div className="messageCard__content">
                 <div className="messageCard__from">
-                    <strong>{userFrom.name}</strong>
+                    <strong>{RT(userFrom?.name)}</strong>
                 </div>
                 <div className="messageCard__text">
-                    <p>{text}</p>
+                    <p>{RT(text)}</p>
                 </div>
             </div>
-            {currentUserId == userFrom.id ? (
+            {currentUserId == userFrom?.id ? (
                 <div className="messageCard__interaction">
-                    <button onClick={deleteMessage}>Delete</button>
-                    <button onClick={() => setEditing(true)}>Edit</button>
+                    <button onClick={deleteMessage}>{RT("Delete")}</button>
+                    <button onClick={() => setEditing(true)}>
+                        {RT("Edit")}
+                    </button>
                 </div>
             ) : null}
         </div>

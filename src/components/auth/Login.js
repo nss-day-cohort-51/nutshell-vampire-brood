@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
+import { RT } from "../tools/HelperFunctions";
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
-
 export const Login = () => {
     const [loginUser, setLoginUser] = useState({ email: "" });
     const [existDialog, setExistDialog] = useState(false);
@@ -38,7 +38,7 @@ export const Login = () => {
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" open={existDialog}>
-                <div>User does not exist</div>
+                <div>{RT("User does not exist")}</div>
                 <button
                     className="button--close"
                     onClick={(e) => setExistDialog(false)}
@@ -48,8 +48,8 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nutshell</h1>
-                    <h2>Please sign in</h2>
+                    <h1>{RT("Nutshell")}</h1>
+                    <h2>{RT("Please sign in to view content")}</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input
@@ -69,7 +69,7 @@ export const Login = () => {
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Register for an account</Link>
+                <Link to="/register">{RT("Register for an account")}</Link>
             </section>
         </main>
     );
