@@ -75,7 +75,7 @@ export const TaskCard = ({
                     <Button
                         onClick={() => handleDeleteTask(task.id)}
                         variant="contained"
-                        sx={{ backgroundColor: "#00ff00" }}
+                        sx={{ backgroundColor: "#767b91" }}
                     >
                         {RT("Delete")}
                     </Button>
