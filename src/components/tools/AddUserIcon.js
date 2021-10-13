@@ -1,4 +1,5 @@
 import React from "react";
+import { RT } from "../tools/HelperFunctions";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { useState } from "react";
 import APIManager from "../../modules/APIManager";
@@ -28,7 +29,7 @@ export const AddUserIcon = ({ userId, handleClick }) => {
             <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogTitle id="confirm-dialog">Add Friend</DialogTitle>
                 <DialogContent>
-                    Are you sure you want to add friend?
+                    {RT("Are you sure you want to add friend?")}
                 </DialogContent>
                 <DialogActions>
                     <Button

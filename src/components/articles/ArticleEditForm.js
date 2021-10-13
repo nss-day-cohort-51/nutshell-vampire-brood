@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { RT } from "../tools/HelperFunctions";
 import APIManager from "../../modules/APIManager";
 import { useParams, useHistory } from "react-router-dom";
-
 export const ArticleEditForm = () => {
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"));
     const [article, setArticle] = useState({
@@ -53,10 +53,10 @@ export const ArticleEditForm = () => {
 
     return (
         <form className="articleForm">
-            <h2 className="articleForm__title">New Article</h2>
+            <h2 className="articleForm__title">{RT("New Article")}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Article title:</label>
+                    <label htmlFor="title">{RT("Article title:")}</label>
                     <input
                         type="text"
                         id="title"
@@ -71,7 +71,7 @@ export const ArticleEditForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="synopsis">Article synopsis:</label>
+                    <label htmlFor="synopsis">{RT("Article synopsis:")}</label>
                     <input
                         type="text"
                         id="synopsis"
@@ -86,7 +86,7 @@ export const ArticleEditForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="url">Article url:</label>
+                    <label htmlFor="url">{RT("Article url:")}</label>
                     <input
                         type="text"
                         id="url"
@@ -101,7 +101,7 @@ export const ArticleEditForm = () => {
             </fieldset>
 
             <button className="btn btn-primary" onClick={updateExistingArticle}>
-                Save Article
+                {RT("Save Article")}
             </button>
         </form>
     );
