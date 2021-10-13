@@ -20,13 +20,13 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
                 </h3>
 
                 <div className="eventCardFirst__startDate">
-                    Beginning: {eventStart}
+                    Beginning: {RT(eventStart)}
                 </div>
 
                 {eventEnd ? (
                     <div className="eventCardFirst__endDate">
                         {" "}
-                        Ending: {eventEnd}{" "}
+                        Ending: {RT(eventEnd)}{" "}
                     </div>
                 ) : (
                     <div className="eventCardFirst__endDate">
@@ -84,13 +84,13 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
                 </h3>
 
                 <div className="eventCard__startDate">
-                    Beginning: {eventStart}
+                    Beginning: {RT(eventStart)}
                 </div>
 
                 {eventEnd ? (
                     <div className="eventCard__endDate">
                         {" "}
-                        Ending: {eventEnd}{" "}
+                        Ending: {RT(eventEnd)}{" "}
                     </div>
                 ) : (
                     <div className="eventCard__endDate">

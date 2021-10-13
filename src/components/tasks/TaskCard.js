@@ -53,15 +53,17 @@ export const TaskCard = ({
                                     inputProps={{ "aria-label": "controlled" }}
                                 />
                             }
-                            label="Complete"
+                            label={RT("Complete")}
                             labelPlacement="start"
                         />
                     }
-                    title={task.name}
-                    subheader={("Due:", convertDateString(task.dueDate))}
+                    title={RT(task.name)}
+                    subheader={("Due:", RT(convertDateString(task.dueDate)))}
                 />
                 <CardContent>
-                    <Typography variant="body2">{task.description}</Typography>
+                    <Typography variant="body2">
+                        {RT(task.description)}
+                    </Typography>
                 </CardContent>
                 <CardActions>
                     <Button

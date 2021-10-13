@@ -58,7 +58,7 @@ export const TaskForm = () => {
                             required
                             autoFocus
                             className="form-control"
-                            placeholder="Title of task"
+                            placeholder={RT("Title of task")}
                             value={task.name}
                         />
                     </div>
@@ -73,7 +73,7 @@ export const TaskForm = () => {
                             required
                             autoFocus
                             className="form-control"
-                            placeholder="Task due date"
+                            placeholder={RT("Task due date")}
                             value={task.dueDate}
                         />
                     </div>
@@ -88,7 +88,7 @@ export const TaskForm = () => {
                             required
                             autoFocus
                             className="form-control"
-                            placeholder="owner of task"
+                            placeholder={RT("owner of task")}
                             value={task.userId}
                         />
                     </div>
@@ -102,7 +102,7 @@ export const TaskForm = () => {
                             id="description"
                             cols="30"
                             rows="10"
-                            placeholder="Describe the task"
+                            placeholder={RT("Describe the task")}
                             value={task.description}
                             onChange={handleControlledInputChange}
                         ></textarea>

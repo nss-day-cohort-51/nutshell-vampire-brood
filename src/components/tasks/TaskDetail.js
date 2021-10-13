@@ -51,16 +51,16 @@ export const TaskDetail = () => {
         <section className="task">
             <div className="task__card">
                 <section className="task__card-header">
-                    <h3 className="task__name">{task.name}</h3>
+                    <h3 className="task__name">{RT(task.name)}</h3>
                 </section>
                 <hr />
                 <section className="task__card-body">
-                    <div className="task__user">Owner: {task.user}</div>
-                    <div className="task__due-date">{task.dueDate}</div>
+                    <div className="task__user">Owner: {RT(task.user)}</div>
+                    <div className="task__due-date">{RT(task.dueDate)}</div>
                     <div className="task__completion-status">
                         {task.complete}
                     </div>
-                    <p className="task__description">{task.description}</p>
+                    <p className="task__description">{RT(task.description)}</p>
                 </section>
                 <section className="task__card-footer">
                     <div className="task__edit-delete-button-block">

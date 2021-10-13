@@ -49,7 +49,10 @@ export const Messages = () => {
                             : "messageUserCard"
                     }
                 >
-                    <div className="messageUserCard__user"> Public Chat </div>
+                    <div className="messageUserCard__user">
+                        {" "}
+                        {RT("Public Chat")}{" "}
+                    </div>
                 </div>
                 {totalActiveUsers.map((userId) => (
                     <MessageUserCard
