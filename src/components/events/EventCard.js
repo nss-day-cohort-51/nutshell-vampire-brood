@@ -11,6 +11,11 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
     const eventStart = dateTimeFormatter(event.dateStart)
     const eventEnd = dateTimeFormatter(event.dateEnd)
     const history = useHistory();
+
+    const handleMoreDetails = () => {
+        history.push("/events/" + event.id + "/")
+    }
+
     const eventCardContent = index === 0 ?
 
         //Event is the next in line
@@ -28,6 +33,8 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
             {eventEnd ? <div className="eventCardFirst__endDate"> Ending: {eventEnd} </div> : <div className="eventCardFirst__endDate"> Ending: No ending available </div>}
 
             {event.location ? <div className="eventCardFirst__location"> Place: {event.location} </div> : <div className="eventCardFirst__location"> Place: Everywhere </div>}
+
+            <button className="event__detailsButton" type="button" onClick={handleMoreDetails}> More Details </button>
 
             {currentUser === event.userId ? <div> <button type="button" className="event__deleteButton" onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
             <div> <button type="button" className="event__deleteButton" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}
@@ -51,6 +58,8 @@ export const EventCard = ({ event, index, handleDeleteEvent }) => {
             {eventEnd ? <div className="eventCard__endDate"> Ending: {eventEnd} </div> : <div className="eventCard__endDate"> Ending: No ending available </div>}
 
             {event.location ? <div className="eventCard__location"> Place: {event.location} </div> : <div className="eventCard__location"> Place: Everywhere </div>}
+
+            <button className="event__detailsButton" type="button" onClick={handleMoreDetails}> More Details </button>
 
             {currentUser === event.userId ? <div> <button type="button" className="event__deleteButton"onClick={() => {handleDeleteEvent(event.id)}} > Remove Occasion </button> </div> : 
             <div><button type="button" className="event__deleteButton" onClick={() => alert("Not allowed to delete this Event")} > Remove Occasion </button> </div>}

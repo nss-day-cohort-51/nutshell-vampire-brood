@@ -12,6 +12,10 @@ This change is specifically for the CSS Styling of the Events section.  There wa
 In order to replicate and test, please see the Events section.  You will see background colors, text colors, borders, etc that are in
 align with the rest of the Event section.
 
+ADDITION:
+Added a "More Details" button on the Event Card.
+Added styling to fall in-line with existing buttons.
+
 # Checklist:
 
 - [X] My code follows the style guidelines of this project
