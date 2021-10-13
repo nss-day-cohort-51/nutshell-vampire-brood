@@ -8,9 +8,13 @@
 - [] This change requires a documentation update
 
 # Testing Instructions
-Go to the Events page and click the Remove Occurence button.  If you are the author of the Event, it will delete.  If not, it will alert with a message.
-Go to the Details page of an Event and click the Remove Occurence button.  If you are the author, it will delete.  If not, it will alert with a message.
-Go to the Details page of an Event and click the Edit button.  If you are the author of the Event, you may edit it.  If not, it will alert with a message.
+This change is specifically for the CSS Styling of the Events section.  There was no additional coding done that affects functionality.
+In order to replicate and test, please see the Events section.  You will see background colors, text colors, borders, etc that are in
+align with the rest of the Event section.
+
+ADDITION:
+Added a "More Details" button on the Event Card.
+Added styling to fall in-line with existing buttons.
 
 # Checklist:
 

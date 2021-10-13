@@ -10,7 +10,7 @@ const currentUser = parseInt(sessionStorage.getItem("nutshell_user"));
 
 export const EventDetail = () => {
 
-    
+
 
     const [event, setEvent] = useState({ user: 0, name: "", location: "", address: "", city: "", state: "", zip: "" });
     const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,7 @@ export const EventDetail = () => {
     const handleDeleteEvent = id => {
         apiEventReturn.delete("events", id)
         history.push("/events");
-        
+
     };
 
     const handleBack = () => {
@@ -46,30 +46,33 @@ export const EventDetail = () => {
 
     return (
 
-        <div className="event__details__">
+        <section className="event">
 
-            <section className="event">
+            <div className="event__details__">
 
-                <h3 className="event__name"> <strong> Name: </strong> {event.name}</h3>
+                <h3 className="event__name"> <strong> Name: {event.name} </strong></h3>
 
-                <div className="event__details"> <strong> Venue: </strong> {event.location}</div>
+                <div className="event__details"> <strong> Venue: </strong> {event.location} </div>
 
-                <div className="event__details"> <strong> Address: </strong> {event.address} {event.city}, {event.state} {event.zip} </div>
+                <div className="event__details"> <strong> Address: </strong> {event.address} </div>
 
-                {event.user === currentUser ? <button className="event__" type="button" disabled={isLoading} onClick={handleDeleteEvent}> Remove Occasion </button> :
-                <button className="event__" type="button" disabled={isLoading} onClick= {() => alert("Not allowed to deleted this Event")}> Remove Occasion </button>}
+                <div className="event__details"> <strong> City: </strong> {event.city} </div>
 
-                {event.user === currentUser ? <button type="button"
-                    onClick={() => history.push(`/events/${eventId}/edit`)}> Edit </button> : <button type="button"
+                <div className="event__details"> <strong> State: </strong> {event.state} </div>
+
+                <div className="event__details"> <strong> Zip: </strong> {event.zip} </div>
+
+                {event.user === currentUser ? <button className="event__deleteButton" type="button" disabled={isLoading} onClick={handleDeleteEvent}> Remove Occasion </button> :
+                    <button className="event__" type="button" className="event__deleteButton" disabled={isLoading} onClick={() => alert("Not allowed to deleted this Event")}> Remove Occasion </button>}
+
+                {event.user === currentUser ? <button type="button" className="event__editButton"
+                    onClick={() => history.push(`/events/${eventId}/edit`)}> Edit </button> : <button type="button" className="event__editButton"
                         onClick={() => alert("Not allowed to edit this Event")}> Edit </button>}
 
-                {/* <button type="button"
-                    onClick={() => history.push(`/events/${eventId}/edit`)}> Edit </button> */}
+                <button type="button" className="event__goBack" onClick={handleBack}> Go Back </button>
 
-                <button type="button" onClick={handleBack}> Go Back </button>
+            </div>
 
-            </section>
-
-        </div>
+        </section>
     );
 }

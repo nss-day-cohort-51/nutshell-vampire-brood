@@ -82,40 +82,40 @@ export const EventForm = () => {
 
 	return (
 		<section className="eventForm__container">
-			<form className="eventForm">
-				<h2 className="eventForm__title">New Event</h2>
 
+			<form className="eventForm">
+				
 				<fieldset> {/* GATHER THE NAME OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="name">Name of Event:</label>
+						<label htmlFor="name">Name of Occasion:</label>
 						<input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Name of Event" value={thisEvent.name} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE LOCATION OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="location">Place of Event:</label>
+						<label htmlFor="location">Place of Occasion:</label>
 						<input type="text" id="location" onChange={handleControlledInputChange} className="form-control" value={thisEvent.location} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE START DATE OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="dateStart">Beginning Day of Event:</label>
+						<label htmlFor="dateStart">Beginning Day of Occasion:</label>
 						<input type="date" id="dateStart" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateStart} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE END DATE OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="dateEnd">Ending Day of Event:</label>
+						<label htmlFor="dateEnd">Ending Day of Occasion:</label>
 						<input type="date" id="dateEnd" onChange={handleControlledInputChange} className="form-control" value={thisEvent.dateEnd} />
 					</div>
 				</fieldset>
 
 				<fieldset> {/* GATHER THE ADDRESS OF THE EVENT */}
 					<div className="form-group">
-						<label htmlFor="address">Address of Event:</label>
+						<label htmlFor="address">Address of Occasion:</label>
 						<input type="address" id="address" onChange={handleControlledInputChange} className="form-control" value={thisEvent.address} />
 					</div>
 				</fieldset>
@@ -137,9 +137,9 @@ export const EventForm = () => {
 						<input type="zip" id="zip" onChange={handleControlledInputChange} className="form-control" value={thisEvent.zip} />
 					</div>
 				</fieldset>
-				<button className="btn btn-primary"
+				<button className="event__saveButton"
 					onClick={handleClickSaveEvent}>
-					Save event
+					Save Occasion
 				</button>
 			</form>
 		</section>

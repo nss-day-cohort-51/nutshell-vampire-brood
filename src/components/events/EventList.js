@@ -41,7 +41,7 @@ export const EventList = () => {
                 <button type="button"
                     className="event__createButton"
                     onClick={() => { history.push("/events/create") }}>
-                    New Occasion
+                    Create New Occasion
                 </button>
 
 
