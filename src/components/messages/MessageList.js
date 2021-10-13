@@ -6,6 +6,7 @@ import { MessageCard } from "./MessageCard";
 import "./messages.css";
 import { useRef } from "react";
 import { MessageComp } from "./MessageComp";
+import { MessageInput } from "./MessageInput";
 
 export const MessageList = ({ activeUserId }) => {
     const [userMessages, setUserMessages] = useState([]);
@@ -118,7 +119,7 @@ export const MessageList = ({ activeUserId }) => {
                             handleSubmit(event);
                         }}
                     >
-                        <fieldset>
+                        {/* <fieldset>
                             <input
                                 type="text"
                                 id="messageList__text"
@@ -131,7 +132,8 @@ export const MessageList = ({ activeUserId }) => {
                         </fieldset>
                         <fieldset>
                             <button type="submit">Send</button>
-                        </fieldset>
+                        </fieldset> */}
+                        <MessageInput postMessage={postMessage} />
                     </form>
                 </div>
             </div>
